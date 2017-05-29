@@ -10,9 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170529143822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comedians", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "playlist_skits", force: :cascade do |t|
+    t.integer  "playlist_id"
+    t.integer  "skit_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["playlist_id"], name: "index_playlist_skits_on_playlist_id", using: :btree
+    t.index ["skit_id"], name: "index_playlist_skits_on_skit_id", using: :btree
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "skit_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skit_id"], name: "index_reviews_on_skit_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "skits", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "comedian_id"
+    t.string   "video_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["comedian_id"], name: "index_skits_on_comedian_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "skit_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_tags_on_category_id", using: :btree
+    t.index ["skit_id"], name: "index_tags_on_skit_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "playlist_skits", "playlists"
+  add_foreign_key "playlist_skits", "skits"
+  add_foreign_key "playlists", "users"
+  add_foreign_key "reviews", "skits"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "skits", "comedians"
+  add_foreign_key "tags", "categories"
+  add_foreign_key "tags", "skits"
 end
