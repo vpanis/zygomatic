@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :skits, only: [ :index, :show ]
   resources :users, only: [ :show, :edit, :update ]
-  resources :playlists, only: [ :index, :show, :create, :update, :delete ]
-  resources :playlist_skits, only: [ :create, :update, :delete ]
+  resources :playlists, only: [ :index, :show, :create, :update, :destroy ]
+  resources :playlist_skits, only: [ :create, :update, :destroy ]
   resources :artists, only: :show
-  resources :reviews, only: [ :create, :update, :delete ]
+  resources :reviews, only: [ :create, :update, :destroy ]
 end
