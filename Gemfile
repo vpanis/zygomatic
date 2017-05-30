@@ -20,6 +20,7 @@ gem 'autoprefixer-rails'
 gem 'cloudinary'
 
 gem 'devise'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   gem 'binding_of_caller'
