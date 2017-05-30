@@ -2,52 +2,44 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
-<div class="card-container">
+  <div class="card-container">
     <header>
       <div class="bio">
-        <%= image_tag "pic_skit.png", class: "bg" %>
-       <!--  <img src="http://www.croop.cl/UI/twitter/images/up.jpg" alt="background" class="bg"> -->
+        <%= image_tag "pic_skit.png", class: "bg" %><!--  skit.pic_skit -->
         <div class="desc">
-          <h3>L'histoire d'un mec</h3> <!-- comedian name -->
-          <p>Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération !</p> <!-- skit short description -->
-        </div>
+          <div>L'histoire d'un mec</div> <!-- comedian name -->
+          <div>
+          Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération
+          <br>
+          <i class="fa fa-play-circle-o" aria-hidden="true" style='font-size: 20px'></i>
+         </div><!-- skit short description -->
       </div>
 
       <div class="comedian-avatar">
-        <%= image_tag "avatar_humourist.png", class: "avatar" %>
- <!-- comedian pic -->
+        <%= image_tag "avatar_humourist.png", class: "avatar" %> <!-- comedian pic -->
         <div class="hover">
             <div class="icon-twitter"></div>
         </div>
       </div>
-
-
     </header>
 
-    <div class="content">
-    <h3>Coluche</h3> <!-- @skit.comedian -->
-    <p>L'histoire d'un mec</p> <!-- @skit.name -->
-      <div class="data">
-        <ul>
-          <li>
-            2,934 <!-- @skit.views.count -->
-            <span>Views</span>
-          </li>
-          <li>
-            7:54 <!-- @skit.lenght -->
-            <span>min</span>
-          </li>
-          <li>
-            4/5 <!-- @skit.ranking -->
-            <span>Stars</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- <div class="follow"> <div class="icon-twitter"></div> Follow</div> -->
+    <div class="data">
+        <div class= "data-info text-center">
+          <div>3456 views </div> <!-- skit.views.count -->
+        </div>
+        <div class= "data-description text-center">
+          <div>COLUCHE</div> <!-- skit.comedian.upcase -->
+          <div>L'histoire d'un mec</div>
+        </div>
+        <div class= "data-info text-center">
+          <div>5:35</div> <!-- skit.lenght -->
+          <div>min</div>
+        </div>
     </div>
-
+  <!--   <div class="class data">
+      <h3>4/5</h3>
+      <span>star</span>
+    </div> -->
   </div>
-
 </body>
 </html>
