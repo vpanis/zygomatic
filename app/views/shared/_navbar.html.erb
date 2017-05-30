@@ -1,0 +1,75 @@
+<div class="navbar-wagon navbar-wagon-fixed">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+  <% end %>
+
+  <!-- Search form -->
+   <%= form_tag("#", :method => "get", id: "search-form", class: "navbar-wagon-search") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search product", class: "navbar-wagon-search-input" %>
+    <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+   <% end %>
+
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
+
+      <!-- Rent your equipment -->
+      <div class="navbar-wagon-item">
+        <%= link_to "Rent your equipment", "#", class: "navbar-wagon-link" %>
+      </div>
+
+      <!-- My equipments -->
+      <div class="navbar-wagon-item">
+        <%= link_to "My equipments", "#", class: "navbar-wagon-link" %>
+      </div>
+
+
+      <!-- Access to rented list -->
+      <div class="navbar-wagon-item">
+        <%= link_to "My bookings", "#", class: "navbar-wagon-link" %>
+      </div>
+
+      <!-- Notification -->
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item-avatar">
+        <div class="dropdown">
+        <% avatar_url = "http://placehold.it/30x30" %>
+        <% if !current_user.profile_pic.blank? %>
+          <% avatar_url = cl_image_path(current_user.profile_pic.path) %>
+        <% elsif !current_user.facebook_picture_url.blank? %>
+          <% avatar_url = current_user.facebook_picture_url %>
+        <% end %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <% else %>
+
+      <!-- Signup text link -->
+      <%= link_to t(".sign_up", default: "Sign Up"), "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Login text link -->
+      <%= link_to t(".sign_in", default: "Login"), "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <% end %>
+  </div>
+</div>
