@@ -1,39 +1,46 @@
-  <div class="card-container">
-    <header>
-      <div class="bio">
-        <%= image_tag "pic_skit.png", class: "bg" %><!--  skit.pic_skit -->
-        <div class="desc">
-          <div>L'histoire d'un mec</div> <!-- comedian name -->
-          <div>
-          Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération
-          <br>
-          <i class="fa fa-play-circle-o" aria-hidden="true" style='font-size: 20px'></i>
-         </div><!-- skit short description -->
-      </div>
+  <div class="container">
+    <div class="raw">
+      <div class="col-xs-12 col-md-4">
+        <div class="skit-card">
+          <header>
+            <div class="bio">
+              <%= image_tag "pic_skit.png", class: "bg" %><!--  skit.pic_skit -->
+              <div class="desc">
+                <br>
+                <div>
+                  <p>Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération</p>
+                  <btn class="btn btn-primary btn-play-banner btn-xs"><i class="fa fa-play-circle-o" aria-hidden="true" style='font-size: 15px'></i> Regarder</btn>
+                </div><!-- skit.short_description -->
+              </div>
+            </div>
+            <div class="card-comedian-avatar">
+              <%= image_tag "avatar_humourist.png", class: "card-avatar" %> <!-- skit.comedian_pic -->
+            </div>
 
-      <div class="comedian-avatar">
-        <%= image_tag "avatar_humourist.png", class: "avatar" %> <!-- comedian pic -->
-        <div class="hover">
-            <div class="icon-twitter"></div>
+            <div class="card-ranking">
+              <div class= "card-ranking-item text-center">
+                <div><b>COLUCHE</b></div> <!-- skit.comedian.name.upcase -->
+              </div>
+              <div class= "card-ranking-item text-center">
+                <div><i class="fa fa-battery-full" aria-hidden="true" style='font-size: 25px'></i></div> <!-- skit.ranking -->
+              </div>
+            </div>
+          </header>
+          <div class="card-data">
+            <div class= "card-data-info text-center">
+              <div>3456</div>
+              <div>views</div> <!-- skit.views.count -->
+            </div>
+            <div class= "card-data-description text-center">
+            <div>L'histoire d'un mec, le meilleur sketch du monde</div> <!-- skit.name -->
+            </div>
+            <div class= "card-data-info text-center">
+              <div>5:35</div> <!-- skit.lenght -->
+              <div>min</div>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-
-    <div class="data">
-        <div class= "data-info text-center">
-          <div>3456 views </div> <!-- skit.views.count -->
-        </div>
-        <div class= "data-description text-center">
-          <div>COLUCHE</div> <!-- skit.comedian.upcase -->
-          <div>L'histoire d'un mec</div>
-        </div>
-        <div class= "data-info text-center">
-          <div>5:35</div> <!-- skit.lenght -->
-          <div>min</div>
-        </div>
     </div>
-  <!--   <div class="class data">
-      <h3>4/5</h3>
-      <span>star</span>
-    </div> -->
   </div>
+
