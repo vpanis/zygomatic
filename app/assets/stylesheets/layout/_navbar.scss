@@ -24,11 +24,20 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 200px;
+  width: 250px;
 }
+
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Navbar left section (with logo, links) */
+.navbar-wagon-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -132,9 +141,11 @@
 .navbar-wagon-dropdown-menu {
   margin-top: -4px;
   box-shadow: 1px 1px 4px $brand-yellow;
-  background: $light-grey;  /* fallback for old browsers */
+  background: rgba(255, 255, 255, 0.8);  /* fallback for old browsers */
   border-color: $brand-yellow;
   border-top: 4px solid $brand-yellow;
+  max-width: 500px;
+  margin-left: 20px;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -173,4 +184,48 @@
   top: 50%;
   margin-top: -2px;
   margin-left: 65px;
+}
+
+.drop-left {
+  border-right: 1px solid $light-yellow;
+  min-width: 80px;
+  a{
+    color: $dark-grey;
+  }
+}
+
+.drop-right {
+  li {
+    list-style: none;
+    color: $dark-grey;
+    font-size: 16px;
+    a{
+      color: $dark-grey;
+    }
+  }
+}
+
+.drop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-around;
+}
+
+#left-drop {
+  padding-left: 20px;
+}
+
+#zigometre {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  img {
+  width: 100px;
+  margin-left: 50px;
+  }
+  p {
+    color: $dark-grey;
+    margin: 0px;
+    padding-left: 20px;
+  }
 }
