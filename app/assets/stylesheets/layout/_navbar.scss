@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  font-family: $my-font;
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
 /* Optional class to fix the navbar on top */
@@ -21,7 +24,7 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 200px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -42,7 +45,7 @@
   border-bottom: 3px solid rgba(0, 0, 0, 0);
 
   &:hover {
-    border-bottom: 3px solid $dark-grey;
+    border-bottom: 3px solid $brand-yellow;
   }
 
   &-avatar {
@@ -52,11 +55,14 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: $dark-grey;
-  font-size: 14px;
+  color: $brand-yellow;
 }
 .navbar-wagon-link:hover {
-  color: $dark-grey;
+  color: $brand-yellow;
+  text-decoration: none;
+}
+.navbar-wagon-link:focus {
+  color: $brand-yellow;
   text-decoration: none;
 }
 
@@ -99,25 +105,24 @@
   flex: 0 1 300px;
   transition: all 0.15s ease;
   line-height: 40px;
-  font-weight: lighter;
+  text-transform: uppercase;
   color: #666666;
   border: none;
   border-bottom: 1px solid $light-grey;
   padding: 0 10px;
-  font-size: 14px;
   outline: none;
   position: relative;
   transition: none;
 
   &:hover {
     border: none;
-    border-bottom: 1px solid $dark-grey;
+    border-bottom: 1px solid $brand-yellow;
     color: $dark-grey;
   }
 
   &:focus {
     border: none;
-    border-bottom: 3px solid $dark-grey;
+    border-bottom: 4px solid $brand-yellow;
     top: 2px;
     color: $dark-grey;
   }
@@ -125,15 +130,16 @@
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: 15px;
-  box-shadow: 1px 1px 4px $light-grey;
-  background: white;  /* fallback for old browsers */
-  border-color: $light-grey;
+  margin-top: -4px;
+  box-shadow: 1px 1px 4px $brand-yellow;
+  background: $light-grey;  /* fallback for old browsers */
+  border-color: $brand-yellow;
+  border-top: 4px solid $brand-yellow;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: $light-grey !important;
+  color: $dark-grey !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
@@ -144,13 +150,27 @@
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
-  height: 10px;
-  width: 10px;
+  width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 7px 10px 7px;
+    border-color: transparent transparent $brand-yellow transparent;
+    font-weight: 400;
+    position: absolute;
+    margin-top: -19px;
+    margin-left: 16px;
+}
+
+
+.caret {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: $brand-yellow transparent transparent transparent;
+  font-weight: 400;
   position: absolute;
-  right: 10px;
-  top: -6px;
-  background: white;
-  transform: rotate(45deg);
-  border-left: 1px solid $light-grey;
-  border-top: 1px solid $light-grey;
+  top: 50%;
+  margin-top: -2px;
+  margin-left: 65px;
 }

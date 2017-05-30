@@ -4,6 +4,29 @@
     <%= image_tag "logo.png" %>
   <% end %>
 
+  <!-- Left links -->
+  <div class="dropdown">
+    <div class="navbar-wagon-item">
+      <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" do %>
+          <span>Parcourir</span>
+          <span class="caret"></span>
+      <% end %>
+        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+
   <!-- Search form -->
    <%= form_tag("#", :method => "get", id: "search-form", class: "navbar-wagon-search") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search product", class: "navbar-wagon-search-input" %>
@@ -22,6 +45,19 @@
       <!-- Rent your equipment -->
       <div class="navbar-wagon-item">
         <%= link_to "Rent your equipment", "#", class: "navbar-wagon-link" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
       </div>
 
       <!-- My equipments -->
@@ -73,3 +109,4 @@
     <% end %>
   </div>
 </div>
+
