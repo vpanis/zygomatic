@@ -12,7 +12,9 @@
   </head>
   <body>
     <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
