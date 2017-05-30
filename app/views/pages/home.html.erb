@@ -1,5 +1,33 @@
 <%= render "pages/shared/bannerhome" %>
-<%= render "pages/shared/card" %>
+
+<div class="container">
+  <div class="raw">
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/card" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/card" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/card" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="raw">
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/cardartists" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/cardartists" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= render "pages/shared/cardartists" %>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
   <ul id="sortable">
@@ -35,4 +63,3 @@
     });
   <% end %>
 <% end %>
-
