@@ -1,0 +1,159 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.playlist-card {
+  &-container {
+    position: relative;
+    height: 100px;
+    padding-right: 35px;
+  }
+
+  &-box {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    margin: 10px 0 0 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    background-color: $light-grey;
+    -webkit-box-shadow: #bdc3c7 0 5px 5px;
+    -moz-box-shadow: #bdc3c7 0 5px 5px;
+    box-shadow: #bdc3c7 0 5px 5px;
+  }
+
+  &-bio {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    &-link {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      z-index:2;
+      background: black;
+      opacity: 0;
+      &:hover {
+        opacity: 0.1;
+      }
+    }
+  }
+
+  &-data {
+    width: 100%;
+    cursor: grab;
+    padding: 10px 20px;
+    color: $dark-grey;
+    font-family: $header-font;
+    h2 {
+      margin: 0;
+    }
+
+  }
+
+  &-comedian-avatar {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    &-link {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-radius: 50%;
+      z-index:2;
+      background: black;
+      opacity: 0;
+      &:hover {
+        opacity: 0.1;
+      }
+    }
+  }
+
+  &-avatar {
+    width: 100%;
+    border: 6px solid $brand-yellow;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 65px;
+      height: 65px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.marquee {
+ height: 50px;
+ overflow: hidden;
+ position: relative;
+}
+.marquee p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);
+ transform:translateX(100%);
+ /* Apply animation to this element */
+ -moz-animation: marquee 15s linear infinite;
+ -webkit-animation: marquee 15s linear infinite;
+ animation: marquee 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes marquee {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes marquee {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes marquee {
+ 0%   {
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%);
+ }
+ 100% {
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%);
+ }
+}

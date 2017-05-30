@@ -1,4 +1,38 @@
-
 <%= render "pages/shared/bannerhome" %>
 <%= render "pages/shared/card" %>
 <%= render "pages/shared/cardartists" %>
+
+<div class="container">
+  <ul id="sortable">
+    <li class="ui-state-default">
+      <div class="row">
+        <%= render "pages/shared/playlist_card" %>
+      </div>
+    </li>
+    <li class="ui-state-default">
+      <div class="row">
+        <%= render "pages/shared/playlist_card" %>
+      </div>
+    </li>
+    <li class="ui-state-default">
+      <div class="row">
+        <%= render "pages/shared/playlist_card" %>
+      </div>
+    </li>
+    <li class="ui-state-default">
+      <div class="row">
+        <%= render "pages/shared/playlist_card" %>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+    });
+  <% end %>
+<% end %>
