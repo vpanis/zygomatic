@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TODO</title>
+    <title><%= yield(:title_tag).blank? ? "Zygomatic" : yield(:title_tag) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= favicon_link_tag 'o.png' %>
   </head>
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

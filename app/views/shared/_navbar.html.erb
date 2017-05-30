@@ -1,0 +1,132 @@
+<div class="navbar-wagon navbar-wagon-fixed">
+
+  <!-- left-navbar -->
+  <div class="navbar-wagon-left">
+    <!-- logo -->
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155334/logo_sans_tagline_fdzewm.png" %>
+    <% end %>
+
+    <!-- Left links -->
+    <div class="dropdown" id="left-drop">
+      <div class="navbar-wagon-item">
+        <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" do %>
+            <span>Parcourir</span>
+            <span class="caret"></span>
+        <% end %>
+            <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+                <div class="container">
+                  <div class="row">
+                    <div class="drop">
+                      <div class="col-xs-2">
+                        <div class="drop-left">
+                        <li>
+                          <b><%= link_to "Accueil", "#" %></b>
+                        </li>
+                        <li>
+                          <b><%= link_to "Ultimate sketches", "#" %></b>
+                        </li>
+                        <li>
+                          <b><%= link_to "À ne pas manquer", "#" %></b>
+                        </li>
+                        </div>
+                      </div>
+                      <div class="col-xs-3">
+                        <div class="drop-right">
+                          <ul class= "list-inline">
+                            <li><p><%= link_to "Talk-Show", "#" %></p></li>
+                            <li><p><%= link_to "Stand-Up", "#" %></p></li>
+                            <li><p><%= link_to "One-man show", "#" %></p></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </ul>
+      </div>
+    </div>
+
+    <!-- Mes zigos -->
+    <div class="navbar-wagon-item">
+      <%= link_to "Mes Zygos", "#", class: "navbar-wagon-link" %>
+    </div>
+
+  </div>
+
+  <!-- zigomètre -->
+  <div id="zigometre">
+    <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155333/zygometre_zqjbqt.png" %>
+    <p><span style="color: #FFCD38;">75</span> zigos ce mois-ci !</p>
+  </div>
+  <!-- Search form -->
+   <%= form_tag("#", :method => "get", id: "search-form", class: "navbar-wagon-search") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search product", class: "navbar-wagon-search-input" %>
+    <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+   <% end %>
+
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
+
+      <!-- Rent your equipment -->
+      <div class="navbar-wagon-item">
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+      </div>
+
+      <!-- Notification -->
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item-avatar">
+        <div class="dropdown">
+        <% avatar_url = "http://placehold.it/30x30" %>
+        <% if !current_user.profile_pic.blank? %>
+          <% avatar_url = cl_image_path(current_user.profile_pic.path) %>
+        <% elsif !current_user.facebook_picture_url.blank? %>
+          <% avatar_url = current_user.facebook_picture_url %>
+        <% end %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <% else %>
+
+      <!-- Signup text link -->
+      <%= link_to t(".sign_up", default: "Sign Up"), "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Login text link -->
+      <%= link_to t(".sign_in", default: "Login"), "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <% end %>
+  </div>
+</div>
+
