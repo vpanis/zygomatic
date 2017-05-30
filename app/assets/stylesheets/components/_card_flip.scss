@@ -78,12 +78,3 @@
 .options a:hover {
   -webkit-transition: all 0.1s ease-out;
 }
-.options a.play:hover {
-  -webkit-box-shadow: inset 0px 2px 10px rgba(0,0,0,0.5);
-}
-.options a.like:hover {
-  -webkit-box-shadow: inset 0px -1px 10px rgba(0,0,0,0.5);
-}
-.options a.share:hover {
-  -webkit-box-shadow: inset 0px -2px 10px rgba(0,0,0,0.5);
-}
