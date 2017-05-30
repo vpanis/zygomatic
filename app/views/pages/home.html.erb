@@ -1,2 +1,53 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="card-container">
+    <header>
+      <div class="bio">
+        <%= image_tag "pic_skit.png", class: "bg" %>
+       <!--  <img src="http://www.croop.cl/UI/twitter/images/up.jpg" alt="background" class="bg"> -->
+        <div class="desc">
+          <h3>L'histoire d'un mec</h3> <!-- comedian name -->
+          <p>Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération !</p> <!-- skit short description -->
+        </div>
+      </div>
+
+      <div class="comedian-avatar">
+        <%= image_tag "avatar_humourist.png", class: "avatar" %>
+ <!-- comedian pic -->
+        <div class="hover">
+            <div class="icon-twitter"></div>
+        </div>
+      </div>
+
+
+    </header>
+
+    <div class="content">
+    <h3>Coluche</h3> <!-- @skit.comedian -->
+    <p>L'histoire d'un mec</p> <!-- @skit.name -->
+      <div class="data">
+        <ul>
+          <li>
+            2,934 <!-- @skit.views.count -->
+            <span>Views</span>
+          </li>
+          <li>
+            7:54 <!-- @skit.lenght -->
+            <span>min</span>
+          </li>
+          <li>
+            4/5 <!-- @skit.ranking -->
+            <span>Stars</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="follow"> <div class="icon-twitter"></div> Follow</div> -->
+    </div>
+
+  </div>
+
+</body>
+</html>
