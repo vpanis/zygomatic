@@ -1,20 +1,21 @@
 /* -------------------------------------
  * Fonts
  * ------------------------------------- */
-// Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "DKlampion";
+  src: font-url('DKlampion/dk_lampion.eot');
+  src: font-url('DKlampion/dk_lampion.eot?#iefix') format('embedded-opentype'),
+       font-url('DKlampion/dk_lampion.woff') format('woff'),
+       font-url('DKlampion/dk_lampion.ttf') format('truetype')
+}
+$my-font: "DKlampion";
+
+// Google fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+$base-font: "Open Sans", "Helvetica", "sans-serif";
+$header-font: $my-font;
 
 // Font-size and line-height
 $base-size: 16px;
@@ -23,9 +24,13 @@ $base-height: 1.4;
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
-// Scheme
-$brand-color: #D23333;
+// Custom Color Scheme
+$brand-yellow: #FFCD38;
+$light-yellow: #FDB631;
+$dark-grey: #4A4A4A;
+$light-grey: #F3F3F3;
 
+//Overriding bootstrap colors
 $red: #EE5F5B;
 $blue: #469AE0;
 $yellow: #FDB631;
