@@ -1,9 +1,28 @@
 <div class="playlist-card-container">
   <div class="playlist-card-box">
-    <div class="playlist-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/duwczzrpk/image/upload/c_fill,g_face,h_100,w_100/v1496150970/pic_skit_epmkwc.png');">
-      <a class="playlist-card-bio-link" href="#" ></a>
+    <!-- flipping playlist-card-bio  -->
+    <div class="flip">
+      <div class="half">
+        <div class="playlist-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/duwczzrpk/image/upload/c_fill,g_face,h_100,w_100/v1496150970/pic_skit_epmkwc.png');">
+        </div>
+      </div>
+      <div class="options">
+        <%= link_to "#" do  %>
+          <i class="fa fa-play-circle"></i>
+        <% end %>
+        <%= link_to "#" do  %>
+          <i class="fa fa-heart"></i>
+        <% end %>
+        <%= link_to "#" do  %>
+          <i class="fa fa-share"></i>
+        <% end %>
+      </div>
+      <div class="full">
+        <div class="playlist-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/duwczzrpk/image/upload/c_fill,g_face,h_100,w_100/v1496150970/pic_skit_epmkwc.png');">
+        </div>
+      </div>
     </div>
-
+    <!-- END flipping playlist-card-bio  -->
     <div class="playlist-card-data">
         <h2>L'histoire d'un mec - COLUCHE</h2>
         <p>5:35 min</p>

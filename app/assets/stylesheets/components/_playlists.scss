@@ -30,9 +30,10 @@
   &-bio {
     position: relative;
     height: 100px;
-    width: 100px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    width: 100%;
+    background-size: cover;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     &-link {
       position: absolute;
       top: 0;
