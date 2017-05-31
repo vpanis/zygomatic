@@ -10,10 +10,15 @@
 
 <!-- RECOMMENDATIONS -->
 
-<h2>You may also like:</h2>
-
-<% @recommended_skits.each do |skit| %>
-  <%= render 'pages/shared/card', skit: skit %>
-<% end %>
+<div class="container">
+  <h2>You may also like:</h2>
+  <% @recommended_skits.each do |skit| %>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= render 'pages/shared/card', skit: skit %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <!-- REVIEWS -->
