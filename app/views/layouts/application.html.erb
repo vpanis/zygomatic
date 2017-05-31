@@ -11,11 +11,15 @@
     <%= favicon_link_tag 'o.png' %>
   </head>
   <body>
+  <div class="big-wrapper">
     <%= render "shared/navbar" %>
     <div class="main-content">
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
+    <div class="push"></div>
+  </div>
+  <%= render "pages/shared/footer" %>
   </body>
 </html>
