@@ -11,17 +11,20 @@
     <%= favicon_link_tag 'o.png' %>
   </head>
   <body>
-  <div class="big-wrapper">
-    <%= render "shared/navbar" %>
-    <div class="main-content">
-      <%= yield %>
+    <div class="big-wrapper">
+      <%= render "shared/navbar" %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
+
+
+
+      <div class="push"></div>
     </div>
     <%= render "pages/shared/footer" %>
 
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
-    <div class="push"></div>
-  </div>
   </body>
 </html>

@@ -12,7 +12,6 @@
 @comedian.save!
 
 @skit = Skit.new
-
 @skit.name = "L'histoire d'un mec"
 @skit.duration = "5:35"
 @skit.short_description = "Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération"

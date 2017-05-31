@@ -2,7 +2,7 @@
         <div class="skit-card">
           <header>
             <div class="bio">
-              <%= cl_image_tag skit.picture, class: 'bg' %>
+              <%= cl_image_tag skit.picture.path, class: 'bg' %>
               <div class="desc">
                 <br>
                 <div>
@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="card-comedian-avatar">
-              <%= cl_image_tag skit.comedian.picture, class: 'card-avatar' %>
+              <%= cl_image_tag skit.comedian.picture.path, class: 'card-avatar' %>
             </div>
 
             <div class="card-ranking">

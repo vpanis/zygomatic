@@ -1,12 +1,12 @@
 class SkitsController < ApplicationController
-  before_action :set_restaurant, only: [:show]
+  before_action :set_skit, only: [:show]
 
   def index
 
   end
 
   def show
-    @recommended_skits = find_recommended_skits(8)
+    @recommended_skits = find_recommended_skits(6)
   end
 
   private
