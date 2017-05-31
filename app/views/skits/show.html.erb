@@ -1,0 +1,19 @@
+<!-- video player -->
+
+<!-- carrousel of the playlist -->
+
+<!-- average rating + nb of comments -->
+
+<!-- quizz -->
+
+<!-- floating player -->
+
+<!-- RECOMMENDATIONS -->
+
+<h2>You may also like:</h2>
+
+<% @recommended_skits.each do |skit| %>
+  <%= render 'pages/shared/card', skit: skit %>
+<% end %>
+
+<!-- REVIEWS -->
