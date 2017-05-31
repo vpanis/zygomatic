@@ -2,22 +2,24 @@
         <div class="skit-card">
           <header>
             <div class="bio">
-              <%= image_tag "pic_skit.png", class: "bg" %><!--  skit.pic_skit -->
+              <%= cl_image_tag skit.picture.path, class: 'bg' %>
               <div class="desc">
                 <br>
                 <div>
-                  <p>Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération</p>
+                  <p>
+                    <%= skit.short_description %>
+                  </p>
                   <div class="btn btn-primary btn-play-banner btn-sm"><i class="fa fa-play-circle" aria-hidden="true" style='font-size: 20px'></i><b> REGARDER</b></div>
-                </div><!-- skit.short_description -->
+                </div>
               </div>
             </div>
             <div class="card-comedian-avatar">
-              <%= image_tag "avatar_humourist.png", class: "card-avatar" %> <!-- skit.comedian_pic -->
+              <%= cl_image_tag skit.comedian.picture.path, class: 'card-avatar' %>
             </div>
 
             <div class="card-ranking">
               <div class= "card-ranking-item text-center">
-                <div><b>COLUCHE</b></div> <!-- skit.comedian.name.upcase -->
+                <div><b><%= skit.comedian.name %></b></div>
               </div>
               <div class= "card-ranking-item text-center">
                 <div><i class="fa fa-battery-full" aria-hidden="true" style='font-size: 25px'></i></div> <!-- skit.ranking -->
@@ -26,14 +28,14 @@
           </header>
           <div class="card-data">
             <div class= "card-data-info text-center">
-              <div>3456</div>
-              <div>views</div> <!-- skit.views.count -->
+              <div><%= skit.nb_of_views %></div>
+              <div>vues</div>
             </div>
             <div class= "card-data-description text-center">
-            <div>L'histoire d'un mec, le meilleur sketch du monde</div> <!-- skit.name -->
+            <div><%= skit.name %></div>
             </div>
             <div class= "card-data-info text-center">
-              <div>5:35</div> <!-- skit.lenght -->
+              <div><%= skit.duration %></div>
               <div>min</div>
             </div>
           </div>
