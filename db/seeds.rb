@@ -13,6 +13,7 @@
 
 @skit = Skit.new
 @skit.name = "L'histoire d'un mec"
+@skit.youtube_path = "d4knSzXy2oU"
 @skit.duration = "5:35"
 @skit.short_description = "Le sketche mythique qui propulsa Coluche dans la cour des grands. A regarder sans modération"
 @skit.picture_url = 'http://res.cloudinary.com/duwczzrpk/image/upload/v1496150970/pic_skit_epmkwc.png'
