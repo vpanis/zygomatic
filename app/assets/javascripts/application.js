@@ -2,6 +2,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
 //= require_tree .
 
 // Instantiate the Bootstrap carousel
@@ -17,7 +20,7 @@ $('.multi-item-carousel .item').each(function(){
     next = $(this).siblings(':first');
   }
   next.children(':first-child').clone().appendTo($(this));
-  
+
   if (next.next().length>0) {
     next.next().children(':first-child').clone().appendTo($(this));
   } else {
