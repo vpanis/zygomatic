@@ -23,3 +23,19 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+.main-content {
+  position: relative;
+  margin-top: 70px;
+}
+
+.big-wrapper {
+  min-height: 100%;
+   margin-bottom: -200px;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}

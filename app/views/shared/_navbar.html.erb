@@ -4,7 +4,7 @@
   <div class="navbar-wagon-left">
     <!-- logo -->
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo_sans_tagline.png" %>
+      <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155334/logo_sans_tagline_fdzewm.png" %>
     <% end %>
 
     <!-- Left links -->
@@ -56,7 +56,7 @@
 
   <!-- zigomètre -->
   <div id="zigometre">
-    <%= image_tag "zygometre.png" %>
+    <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155333/zygometre_zqjbqt.png" %>
     <p><span style="color: #FFCD38;">75</span> zigos ce mois-ci !</p>
   </div>
   <!-- Search form -->
@@ -76,7 +76,6 @@
 
       <!-- Rent your equipment -->
       <div class="navbar-wagon-item">
-        <%= link_to "Rent your equipment", "#", class: "navbar-wagon-link" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -90,17 +89,6 @@
               <% end %>
             </li>
           </ul>
-      </div>
-
-      <!-- My equipments -->
-      <div class="navbar-wagon-item">
-        <%= link_to "My equipments", "#", class: "navbar-wagon-link" %>
-      </div>
-
-
-      <!-- Access to rented list -->
-      <div class="navbar-wagon-item">
-        <%= link_to "My bookings", "#", class: "navbar-wagon-link" %>
       </div>
 
       <!-- Notification -->

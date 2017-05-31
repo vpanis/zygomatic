@@ -8,11 +8,18 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= favicon_link_tag 'logo.png' %>
+    <%= favicon_link_tag 'o.png' %>
   </head>
   <body>
+  <div class="big-wrapper">
     <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
+    <div class="push"></div>
+  </div>
+  <%= render "pages/shared/footer" %>
   </body>
 </html>
