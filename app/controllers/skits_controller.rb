@@ -2,11 +2,13 @@ class SkitsController < ApplicationController
   before_action :set_skit, only: [:show]
 
   def index
-    @review = Review.new
+
   end
 
   def show
     @recommended_skits = find_recommended_skits(6)
+    @skit = Skit.find(params[:id])
+    @review = Review.new
   end
 
   private
