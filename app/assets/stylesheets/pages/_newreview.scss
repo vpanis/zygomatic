@@ -45,3 +45,18 @@ fieldset, label { margin: 0; padding: 0; }
     text-decoration: none;
   }
 }
+
+
+.submit-btn, .cancel-btn {
+  border: none;
+  background: transparent;
+  z-index: 1;
+  margin: -15px;
+}
+
+.cancel-btn .fa {
+  color: $light-grey;
+  &:hover {
+    color: $dark-grey;
+  }
+}

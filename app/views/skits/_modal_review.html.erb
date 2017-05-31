@@ -21,8 +21,13 @@
           <%= f.hidden_field :skit_id, value: skit.id %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <%= f.submit 'Add review', class: 'btn btn-primary' %>
+
+          <%= button_tag(type: "button", data: {dismiss: "modal"}, class: "cancel-btn") do %>
+            <span style="color: red"><i class="fa fa-trash"></i></span>
+          <% end %>
+          <%= button_tag(type: "submit", :name => "commit", class: "submit-btn") do %>
+            <i class="fa fa-paper-plane"></i>
+          <% end %>
         </div>
       <% end %>
     </div>

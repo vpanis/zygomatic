@@ -4,9 +4,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.skit = @skit
     if @review.save
-      redirect_to skit_path(@skit)
+      redirect_to skit_path(@skit), notice: "Yeah ! Thanks for this rating !"
     else
-      render 'skits/show'
+      redirect_to skit_path(@skit), alert: "Ooops! Your rating did not work"
     end
 
   end
