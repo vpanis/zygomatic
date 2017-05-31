@@ -4,8 +4,19 @@
 </div>
 
 
-<!-- carrousel of the playlist -->
+<!-- modal for review -->
+<div class="rate">
+  <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+    <ul class="list-inline">
+      <li><i class="fa fa-smile-o"></i></li>
+      <li><h4>rate me!</h4></li>
+    </ul>
+  <% end %>
+</div>
 
+<%= render "modal_review", skit: @skit, review: @review %>
+<!-- carrousel of the playlist -->
+<%= render "pages/shared/showcard" %>
 <!-- average rating + nb of comments -->
 
 <!-- quizz -->
@@ -26,6 +37,11 @@
 </div>
 
 <!-- REVIEWS -->
+<h2>Reviews</h2>
+<% @skit.reviews.each do |review| %>
+  <h3><%= "*" * review.rating %></h3>
+  <p><%= review.content %></p>
+<% end %>
 
 <!-- script pour player youtube -->
 <% content_for(:after_js) do %>

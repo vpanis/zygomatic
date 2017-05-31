@@ -7,6 +7,8 @@ class SkitsController < ApplicationController
 
   def show
     @recommended_skits = find_recommended_skits(6)
+    @skit = Skit.find(params[:id])
+    @review = Review.new
   end
 
   private

@@ -1,0 +1,62 @@
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f164";
+}
+
+.rating > label {
+  color: $light-grey;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: $light-yellow;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: $brand-yellow;  }
+
+.rate {
+  li:nth-child(2) {
+    margin-left: -20px;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.submit-btn, .cancel-btn {
+  border: none;
+  background: transparent;
+  z-index: 1;
+  margin: -15px;
+}
+
+.cancel-btn .fa {
+  color: $light-grey;
+  &:hover {
+    color: $dark-grey;
+  }
+}
