@@ -33,3 +33,8 @@
 </div>
 
 <!-- REVIEWS -->
+<h2>Reviews</h2>
+<% @skit.reviews.each do |review| %>
+  <h3><%= "*" * review.rating %></h3>
+  <p><%= review.content %></p>
+<% end %>
