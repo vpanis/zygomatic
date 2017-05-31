@@ -1,5 +1,16 @@
 <!-- video player -->
 
+<!-- modal for review -->
+<div class="rate">
+  <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+    <ul class="list-inline">
+      <li><i class="fa fa-smile-o"></i></li>
+      <li><h4>rate me!</h4></li>
+    </ul>
+  <% end %>
+</div>
+
+<%= render "modal_review", skit: @skit, review: @review %>
 <!-- carrousel of the playlist -->
 <%= render "pages/shared/showcard" %>
 <!-- average rating + nb of comments -->

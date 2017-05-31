@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-    @skit = skit.find(params[:skit_id])
+    @skit = Skit.find(params[:skit_id])
     @review = Review.new(review_params)
     @review.skit = @skit
     if @review.save
