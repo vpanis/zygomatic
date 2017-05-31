@@ -1,6 +1,7 @@
 <!-- video player -->
 <div class="embed-player">
-  <div id="player"></div>
+  <div id="large-player"></div>
+  <div id="miniature-player"></div>
 </div>
 
 
@@ -39,9 +40,10 @@
 
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
-    var player;
+    var largePlayer;
+    var miniaturePlayer;
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
+      largePlayer = new YT.Player('large-player', {
         height: '480',
         width: '850',
         videoId: '<%= j @skit.youtube_path %>',
@@ -51,14 +53,33 @@
           'showinfo': 0
         },
         events: {
-          'onReady': onPlayerReady
+          'onReady': onLargePlayerReady
+        }
+      });
+      miniaturePlayer = new YT.Player('miniature-player', {
+        height: '200',
+        width: '200',
+        videoId: '<%= j @skit.youtube_path %>',
+        playerVars: {
+          'autoplay': 1,
+          'rel': 0,
+          'showinfo': 0
+        },
+        events: {
+          'onReady': onMiniaturePlayerReady
         }
       });
     }
 
     // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
+    function onLargePlayerReady(event) {
       event.target.playVideo();
     }
+    function onMiniaturePlayerReady(event) {
+      event.target.mute();
+      event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
   <% end %>
 <% end %>
