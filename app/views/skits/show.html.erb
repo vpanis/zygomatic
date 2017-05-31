@@ -1,7 +1,7 @@
 <!-- video player -->
 <div class="embed-player">
-  <div id="large-player"></div>
-  <div id="miniature-player"></div>
+  <div id="large-player" class='player'></div>
+  <div id="miniature-player" class='player'></div>
 </div>
 
 
@@ -31,6 +31,7 @@
 <!-- script pour player youtube -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
@@ -53,7 +54,8 @@
           'showinfo': 0
         },
         events: {
-          'onReady': onLargePlayerReady
+          'onReady': onLargePlayerReady,
+          'onStateChange': onLargePlayerStateChange
         }
       });
       miniaturePlayer = new YT.Player('miniature-player', {
@@ -66,7 +68,8 @@
           'showinfo': 0
         },
         events: {
-          'onReady': onMiniaturePlayerReady
+          'onReady': onMiniaturePlayerReady,
+          'onStateChange': onMiniaturePlayerStateChange
         }
       });
     }
@@ -81,5 +84,56 @@
     }
 
     // 5. The API calls this function when the player's state changes.
+    function onLargePlayerStateChange(event) {
+
+      switch (event.data) {
+        case YT.PlayerState.ENDED:
+          console.log('large-player ENDED');
+          miniaturePlayer.stopVideo();
+          break;
+        case YT.PlayerState.PLAYING:
+          var largePlayerCurrentTime = largePlayer.getCurrentTime();
+          miniaturePlayer.seekTo(largePlayerCurrentTime, false);
+          console.log('large-player PLAYING');
+          miniaturePlayer.playVideo();
+          break;
+        case YT.PlayerState.PAUSED:
+          console.log('large-player PAUSED');
+          miniaturePlayer.pauseVideo();
+          break;
+        case YT.PlayerState.BUFFERING:
+          console.log('large-player BUFFERING');
+          break;
+        case YT.PlayerState.CUED:
+          console.log('large-player CUED');
+          break;
+      }
+    }
+    function onMiniaturePlayerStateChange(event) {
+
+      switch (event.data) {
+        case YT.PlayerState.ENDED:
+          console.log('miniature-player ENDED');
+          largePlayer.stopVideo();
+          break;
+        case YT.PlayerState.PLAYING:
+          var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
+          largePlayer.seekTo(miniaturePlayerCurrentTime, false);
+          console.log('miniature-player PLAYING');
+          largePlayer.playVideo();
+          break;
+        case YT.PlayerState.PAUSED:
+          console.log('miniature-player PAUSED');
+          largePlayer.pauseVideo();
+          break;
+        case YT.PlayerState.BUFFERING:
+          console.log('miniature-player BUFFERING');
+          break;
+        case YT.PlayerState.CUED:
+          console.log('miniature-player CUED');
+          break;
+      }
+    }
+
   <% end %>
 <% end %>
