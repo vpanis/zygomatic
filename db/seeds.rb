@@ -53,21 +53,21 @@ csv_reviews = File.read(Rails.root.join('lib', 'seeds', 'reviews.csv'))
 csv = CSV.parse(csv_reviews, :headers => true, col_sep: ';')
 puts csv_reviews
 csv.each do |row|
-  Review.create(content: row[0], rating: row[1], user: row[2], skit_id: row[3])
+  Review.create(content: row[0], rating: row[1], user: User.find(row[2]), skit_id: row[3])
 end
 
 csv_playlists = File.read(Rails.root.join('lib', 'seeds', 'playlists.csv'))
 csv = CSV.parse(csv_playlists, :headers => true, col_sep: ';')
 puts csv_playlists
 csv.each do |row|
-  Playlist.create(name: row[0], user: row[1])
+  Playlist.create(name: row[0], user: User.find(row[1]))
 end
 
-csv_playlists_skits = File.read(Rails.root.join('lib', 'seeds', 'csv_playlists_skits.csv'))
+csv_playlists_skits = File.read(Rails.root.join('lib', 'seeds', 'playlists_skits.csv'))
 csv = CSV.parse(csv_playlists_skits, :headers => true, col_sep: ';')
 puts csv_playlists_skits
 csv.each do |row|
-  Playlistskit.create(skit_id: row[0], playlist_id: row[1])
+  PlaylistSkit.create(skit_id: row[0], playlist_id: row[1])
 end
 
 
