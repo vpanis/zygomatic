@@ -3,15 +3,13 @@
           <header>
             <div class="bio">
               <%= cl_image_tag skit.picture.path, class: 'bg' %>
-              <div class="desc">
-                <br>
-                <div>
-                  <p>
-                    <%= skit.short_description %>
-                  </p>
-                  <div class="btn btn-primary btn-play-banner btn-sm"><i class="fa fa-play-circle" aria-hidden="true" style='font-size: 20px'></i><b> REGARDER</b></div>
-                </div>
-              </div>
+              <a href=<%= skit_path(skit) %> class="desc">
+                <p>
+                  <%= skit.short_description %>
+                </p>
+                <i class="fa fa-play-circle" aria-hidden="true" style='font-size: 20px'></i>
+                <b> REGARDER</b>
+              </a>
             </div>
             <div class="card-comedian-avatar">
               <%= cl_image_tag skit.comedian.picture.path, class: 'card-avatar' %>
