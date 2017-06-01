@@ -2,7 +2,21 @@ class SkitsController < ApplicationController
   before_action :set_skit, only: [:show]
 
   def index
-
+    if params[:search]
+      @skits = Skit.search(params[:search])
+      @comedians = []
+      @skits.each do |skit|
+        @comedians << skit.comedian
+      end
+      @comedians.uniq!
+      # @playlists = []
+      # @skits.each do |playlist|
+      #   @playlists << skit.playlist
+      # end    
+      # @playlists.uniq!
+    else
+      @skits = nil
+    end
   end
 
   def show
