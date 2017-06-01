@@ -4,11 +4,16 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.skit = @skit
     if @review.save
-      redirect_to skit_path(@skit), notice: "Yeah ! Thanks for this rating !"
+      respond_to do |format|
+        format.html { redirect_to skit_path(@review.skit), notice: "Yeah ! Thanks for this rating !" }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      redirect_to skit_path(@skit), alert: "Ooops! Your rating did not work"
+      respond_to do |format|
+        format.html { redirect_to skit_path(@review.skit), alert: "Ooops! Your rating did not work" }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     end
-
   end
 
   def update
