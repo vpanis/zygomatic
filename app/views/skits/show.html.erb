@@ -25,7 +25,7 @@
                   </li>
                   <!-- # of comments and link to them -->
                   <li>
-                    <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
+                    <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
                   </li>
                   <!-- Add a review -->
                   <li>
@@ -90,6 +90,11 @@
             </div>
           </div>
           <!-- REVIEWS -->
+          <div class="row" id="on_top_reviews">
+            <div class="col-xs-12">
+              <br/>
+            </div>
+          </div>
           <div class="row">
             <div class="col-xs-12" id="reviews">
               <div class="head-title-box">
@@ -130,7 +135,15 @@
       </div>
       <div class="col-xs-4">
         <!-- QUIZZ CARD -->
-
+        <div class="quizzcard padded text-center">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 style="font-size: 50px;">QUIZZ<br/>
+              (EN DÉVELOPPEMENT)<br/><br/>LET'S PLAY !</h2>
+              <%= image_tag "o.png", width: "100px" %>
+            </div>
+          </div>
+        </div>
         <!-- FLOATING MINIATURE VIDEO PLAYER & INFOS -->
         <div class="right-content">
           <div id="minipanel">
@@ -197,7 +210,6 @@
                   </div>
                 </ul>
               </div>
-
             </div>
           </div>
         </div>
