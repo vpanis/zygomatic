@@ -33,11 +33,15 @@ csv.each do |row|
   comedian.save!
 end
 
-csv_skits = File.read(Rails.root.join('lib', 'seeds', 'skits.csv'))
+csv_skits = File.read(Rails.root.join('lib', 'seeds', 'skits2.csv'))
 csv = CSV.parse(csv_skits, :headers => true, col_sep: ';')
 puts csv_skits
 csv.each do |row|
-  Skit.create(name: row[0], comedian_id: row[1], youtube_path: row[2], duration: row[3], nb_of_views: row[4], short_description: row[5], full_description: row[6], category: row[7])
+  skit = Skit.new(name: row[0], comedian_id: row[1], youtube_path: row[2], duration: row[3], nb_of_views: row[4], short_description: row[5], full_description: row[6], category: row[8])
+  p skit
+  skit.picture_url = row[7]
+  p skit
+  skit.save!
 end
 
 csv_users = File.read(Rails.root.join('lib', 'seeds', 'users.csv'))
