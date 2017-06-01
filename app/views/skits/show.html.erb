@@ -1,59 +1,231 @@
-<!-- video player -->
-<div class="embed-player">
-  <div id="large-player" class='player'></div>
-</div>
-
-<div id="miniature-player" class='player'></div>
-
-<!-- modal for review -->
-<div class="rate">
-  <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
-    <ul class="list-inline">
-      <li><i class="fa fa-smile-o"></i></li>
-      <li><h4>rate me!</h4></li>
-    </ul>
-  <% end %>
-</div>
-
-<div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+<div class="showpage">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="left-content">
+          <!-- VIDEO PLAYER -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2>Vous regardez “<%= @skit.name %>” de <%= @skit.comedian.name %></h2>
+              <!-- video player -->
+              <div class="embed-player">
+                <div id="large-player" class='player'></div>
+              </div>
+              <!-- end -->
+            </div>
+          </div>
+          <!-- SUBVIDEO INFOS -->
+          <div class="row">
+            <div class="col-xs-12">
+              <ul class="list-inline">
+                <div class="subvideobar">
+                  <!-- average rating -->
+                  <li>
+                    <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;"><%= "★" * @skit_rating_average %></span></h4>
+                  </li>
+                  <!-- # of comments and link to them -->
+                  <li>
+                    <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
+                  </li>
+                  <!-- Add a review -->
+                  <li>
+                    <div class="rate">
+                      <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+                        <ul class="list-inline">
+                          <li><i class="fa fa-smile-o"></i></li>
+                          <li><h4>Evaluez-moi !</h4></li>
+                        </ul>
+                      <% end %>
+                    </div>
+                    <!-- modal for review -->
+                    <% if !user_signed_in? %>
+                      <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title text-center" id="myModalLabel">Merci de vous logger pour noter et laisser un commentaire !</h4>
+                            </div>
+                    <% else %>
+                      <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+                            </div>
+                            <%= render "review_form", skit: @skit, review: @review %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    <!-- end -->
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <!-- NEXT SKITS OF PLAYLIST -->
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- carrousel of the playlist -->
+              <div class="head-title-box">
+                <h2>Les sketches de votre playlist</h2>
+              </div>
+              <%= render "pages/shared/showcard" %>
+            </div>
+          </div>
+          <!-- RECOMMENDATIONS -->
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- carrousel of the playlist -->
+              <div class="head-title-box">
+                <h2>Nos recommandations pour vous</h2>
+              </div>
+              <% @recommended_skits.each do |skit| %>
+                <div class="col-xs-12 col-md-4">
+                  <%= render 'pages/shared/card', skit: skit %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <!-- REVIEWS -->
+          <div class="row" id="on_top_reviews">
+            <div class="col-xs-12">
+              <br/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12" id="reviews">
+              <div class="head-title-box">
+                <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;">Note globale : <%= "★" * @skit_rating_average %></span></h2>
+              </div>
+                <% if @skit.reviews.blank? %>
+                  <p>No rating yet</p>
+                  <hr class="col-12">
+                <% else %>
+                  <% @skit.reviews.each do |review| %>
+                    <div class="row">
+                      <div class="col-xs-5 col-sm-3">
+                        <div class="review-name-box">
+                            <% comment_pic = review.user.picture.path %>
+                            <% if comment_pic.nil? %>
+                              <%= image_tag 'http://placehold.it/60x60', class: "avatar-very-large" %>
+                            <% elsif %>
+                              <%= image_tag cl_image_path(comment_pic), class: "avatar-very-large" %>
+                            <% end %>
+                            <div>
+                              <p><%= review.user.first_name %></p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-7 col-sm-9">
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <%= render "reviews/show", review: review %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <%= render "review_form", skit: @skit, review: @review %>
+      <div class="col-xs-4">
+        <!-- QUIZZ CARD -->
+        <div class="quizzcard padded text-center">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 style="font-size: 50px;">QUIZZ<br/>
+              (EN DÉVELOPPEMENT)<br/><br/>LET'S PLAY !</h2>
+              <%= image_tag "o.png", width: "100px" %>
+            </div>
+          </div>
+        </div>
+        <!-- FLOATING MINIATURE VIDEO PLAYER & INFOS -->
+        <div class="right-content">
+          <div id="minipanel">
+            <div class="row">
+              <!-- VIDEO TITLE & COMEDIAN -->
+              <div class="col-xs-12">
+                <div class="head-title-box">
+                  <h2 id="minihead" class="text-center">
+                    Vous regardez “<%= @skit.name %>” de <%= @skit.comedian.name %>
+                  </h2>
+                </div>
+              </div>
+              <!-- MINIATURE VIDEO PLAYER -->
+              <div class="col-xs-12">
+                <div id="miniature-player" class='player'>
+                </div>
+              </div>
+              <!-- FLOATING SUBVIDEO BAR -->
+              <div class="col-xs-12">
+                <ul class="list-inline">
+                  <div class="subvideobar">
+                    <!-- average rating -->
+                    <li>
+                      <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;"><%= "★" * @skit_rating_average %></span></h4>
+                    </li>
+                    <!-- # of comments and link to them -->
+                    <li>
+                      <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
+                    </li>
+                    <!-- Add a review -->
+                    <li>
+                      <div class="rate">
+                        <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+                          <ul class="list-inline">
+                            <li><i class="fa fa-smile-o"></i></li>
+                            <li><h4>Evaluez-moi !</h4></li>
+                          </ul>
+                        <% end %>
+                      </div>
+                      <!-- modal for review -->
+                      <% if !user_signed_in? %>
+                        <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title text-center" id="myModalLabel">Merci de vous logger pour noter et laisser un commentaire !</h4>
+                              </div>
+                      <% else %>
+                        <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+                              </div>
+                              <%= render "review_form", skit: @skit, review: @review %>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                      <!-- end -->
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<!-- carrousel of the playlist -->
-<%= render "pages/shared/showcard" %>
-<!-- average rating + nb of comments -->
 
-<!-- quizz -->
 
-<!-- floating player -->
 
-<!-- RECOMMENDATIONS -->
 
-<div class="container">
-  <h2>You may also like:</h2>
-  <div class="row">
-    <% @recommended_skits.each do |skit| %>
-      <div class="col-xs-12 col-md-4">
-        <%= render 'pages/shared/card', skit: skit %>
-      </div>
-    <% end %>
-  </div>
-</div>
 
-<!-- REVIEWS -->
-<div id="reviews">
-  <h2>Reviews</h2>
-  <% @skit.reviews.each do |review| %>
-    <%= render "reviews/show", review: review %>
-  <% end %>
-</div>
+
+
+
+
 <!-- script pour player youtube -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

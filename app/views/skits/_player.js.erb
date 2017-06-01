@@ -12,7 +12,7 @@
     function onYouTubeIframeAPIReady() {
       largePlayer = new YT.Player('large-player', {
         height: '480',
-        width: '850',
+        width: '100%',
         videoId: '<%= j @skit.youtube_path %>',
         playerVars: {
           'autoplay': 1,
@@ -25,8 +25,8 @@
         }
       });
       miniaturePlayer = new YT.Player('miniature-player', {
-        height: '200',
-        width: '200',
+        height: '300px',
+        width: '100%',
         videoId: '<%= j @skit.youtube_path %>',
         playerVars: {
           'autoplay': 1,
@@ -40,6 +40,7 @@
       });
     }
     $('#miniature-player').hide();
+    $('#minipanel').hide();
 
     // 4. The API will call this function when the video player is ready.
     function onLargePlayerReady(event) {
@@ -115,11 +116,13 @@
         if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible) {
           miniature_player_visible = true;
           $('#miniature-player').fadeIn();
+          $('#minipanel').fadeIn();
           console.log('you have below the bottom of large player');
         }
         if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible) {
           miniature_player_visible = false;
           $('#miniature-player').fadeOut();
+          $('#minipanel').fadeOut();
           console.log('you have above the bottom of large player');
         }
       });

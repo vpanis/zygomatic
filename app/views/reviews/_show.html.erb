@@ -1,2 +1,4 @@
-<h3><%= "*" * review.rating %></h3>
-<p><%= review.content %></p>
+<h3><span style="color: $brand-yellow;"><%= "★" * review.rating %></span></h3>
+<p><em><%= review.content %></em></p>
+<p style= "font-size: 12px;"><%= review.created_at.strftime("%B %Y")%></p>
+

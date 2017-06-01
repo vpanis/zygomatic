@@ -1,11 +1,108 @@
-.embed-player {
-  margin: 0;
-  padding: 30px 30px;
+
+.showpage {
+  position: relative;
 }
 
-#miniature-player {
+.left-content {
+  .embed-player {
+    margin-top: 10px;
+  }
+  .fa {
+    margin-left: 5px;
+    color: $brand-yellow;
+  }
+}
+
+.right-content {
+
+}
+
+
+#minipanel {
+  width: 33%;
   position: fixed;
   right: 10px;
   top: 70px;
   z-index: 10;
+}
+
+.rate {
+  li:nth-child(2) {
+    margin-left: -20px;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.submit-btn, .cancel-btn {
+  border: none;
+  background: transparent;
+  z-index: 1;
+  margin: -15px;
+}
+
+.cancel-btn .fa {
+  color: $light-grey;
+  &:hover {
+    color: $dark-grey;
+  }
+}
+
+.subvideobar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  > li {
+    margin-right: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  #overall_rating {
+    margin-left: 13px;
+    span {
+      color: $brand-yellow;
+    }
+  }
+}
+
+.head-title-box {
+  margin-top: 10px;
+  background-color: $brand-yellow;
+  text-shadow: 1px 1px 0px white;
+  h2 {
+    padding: 10px;
+  }
+}
+
+.review-name-box {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  p {
+    margin: 0 0 0 20px;
+    font-style: italic;
+  }
+}
+
+#reviews {
+  h3 {
+    color: $brand-yellow;
+  }
+}
+
+.player {
+  border: 4px solid $brand-yellow;
+  border-radius: 4px;
+}
+
+.quizzcard {
+  width: 100%;
+  height: 480px;
+  background-color: $light-yellow;
+  margin-top: 70px;
+  border-radius: 4px;
 }

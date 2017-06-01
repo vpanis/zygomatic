@@ -36,27 +36,3 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: $brand-yellow;  }
 
-.rate {
-  li:nth-child(2) {
-    margin-left: -20px;
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-  }
-}
-
-
-.submit-btn, .cancel-btn {
-  border: none;
-  background: transparent;
-  z-index: 1;
-  margin: -15px;
-}
-
-.cancel-btn .fa {
-  color: $light-grey;
-  &:hover {
-    color: $dark-grey;
-  }
-}
