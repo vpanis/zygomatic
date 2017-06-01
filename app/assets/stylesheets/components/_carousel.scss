@@ -29,7 +29,21 @@
   }
   .carouse-control{
     &.left, &.right{
-      background-image: none;
+      background-image: none!important;
     }
   }
+}
+
+.left-control-override {
+  background-image: none!important;
+}
+
+.right-control-override {
+  background-image: none!important;
+}
+
+.glyphicon {
+  color: $brand-yellow!important;
+  font-size: 70px!important;
+  text-shadow: 1px 1px 1px white;
 }
