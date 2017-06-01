@@ -2,3 +2,10 @@
   margin: 0;
   padding: 30px 30px;
 }
+
+#miniature-player {
+  position: fixed;
+  right: 10px;
+  top: 70px;
+  z-index: 10;
+}
