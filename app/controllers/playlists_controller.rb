@@ -1,4 +1,6 @@
 class PlaylistsController < ApplicationController
+  before_action :set_playlist, only: [ :show, :create, :update, :destroy ]
+
   def index
 
   end
@@ -15,6 +17,12 @@ class PlaylistsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def set_playlist
+    @playlist = Playlist.find(params[:id])
   end
 
 end

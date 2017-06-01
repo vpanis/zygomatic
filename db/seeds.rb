@@ -29,7 +29,6 @@ puts csv_comedians
 csv.each do |row|
   comedian = Comedian.new(name: row[0], short_description: row[2], full_description: row[3])
   comedian.picture_url = row[1]
-  p comedian
   comedian.save!
 end
 
@@ -38,9 +37,7 @@ csv = CSV.parse(csv_skits, :headers => true, col_sep: ';')
 puts csv_skits
 csv.each do |row|
   skit = Skit.new(name: row[0], comedian_id: row[1], youtube_path: row[2], duration: row[3], nb_of_views: row[4], short_description: row[5], full_description: row[6], category: row[8])
-  p skit
   skit.picture_url = row[7]
-  p skit
   skit.save!
 end
 
@@ -50,7 +47,7 @@ puts csv_users
 csv.each do |row|
   user = User.create(first_name: row[0], last_name: row[1], email: row[2], fun_level: row[3], password: row[4])
   user.picture_url = row[4]
-  p user.save!
+  user.save!
 end
 
 csv_reviews = File.read(Rails.root.join('lib', 'seeds', 'reviews.csv'))
