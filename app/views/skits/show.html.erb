@@ -15,7 +15,17 @@
   <% end %>
 </div>
 
-<%= render "modal_review", skit: @skit, review: @review %>
+<div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+      </div>
+      <%= render "review_form", skit: @skit, review: @review %>
+    </div>
+  </div>
+</div>
 <!-- carrousel of the playlist -->
 <%= render "pages/shared/showcard" %>
 <!-- average rating + nb of comments -->
@@ -38,12 +48,12 @@
 </div>
 
 <!-- REVIEWS -->
-<h2>Reviews</h2>
-<% @skit.reviews.each do |review| %>
-  <h3><%= "*" * review.rating %></h3>
-  <p><%= review.content %></p>
-<% end %>
-
+<div id="reviews">
+  <h2>Reviews</h2>
+  <% @skit.reviews.each do |review| %>
+    <%= render "reviews/show", review: review %>
+  <% end %>
+</div>
 <!-- script pour player youtube -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
