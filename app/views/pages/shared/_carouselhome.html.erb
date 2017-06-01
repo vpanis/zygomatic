@@ -15,3 +15,13 @@
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+    setInterval( "clickOnCarouselRight()", 1000 );
+    function clickOnCarouselRight(){
+        $('.right').click();
+    }
+  <% end %>
+<% end %>
