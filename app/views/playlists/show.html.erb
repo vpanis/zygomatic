@@ -1,5 +1,24 @@
 <div class="banner-playlist"></div>
 
 <div class="container">
-
+  <ul id="sortable">
+    <% @playlist.skits.each do |skit| %>
+      <li class="ui-state-default" style="list-style-type: none">
+        <div class=row>
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <%= render 'pages/shared/playlist_skit_card', skit: skit %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+    });
+  <% end %>
+ <% end %>
