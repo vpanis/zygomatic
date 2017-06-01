@@ -1,5 +1,10 @@
+<div class="playlist-skit-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path skit.picture.path, height: 100, width: 100, crop: :scale %>');">
+  <%= link_to skit_path(skit), class: 'playlist-skit-card-bio-link' do %>
+    <i class="fa fa-play-circle" aria-hidden="true" style='font-size: 40px'></i>
+  <% end %>
+</div>
 
-<div class="flip">
+<!-- <div class="flip">
   <div class="half">
     <div class="playlist-skit-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path skit.picture.path, height: 100, width: 100, crop: :scale %>');">
     </div>
@@ -19,4 +24,4 @@
     <div class="playlist-skit-card-bio" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path skit.picture.path, height: 100, width: 100, crop: :scale %>');">
     </div>
   </div>
-</div>
+</div> -->

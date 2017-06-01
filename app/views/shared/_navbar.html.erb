@@ -10,48 +10,59 @@
     <!-- Left links -->
     <div class="dropdown" id="left-drop">
       <div class="navbar-wagon-item">
-        <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" do %>
+        <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu-parcourir", "data-toggle" => "dropdown" do %>
             <span>Parcourir</span>
             <span class="caret"></span>
         <% end %>
-            <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-                <div class="container">
-                  <div class="row">
-                    <div class="drop">
-                      <div class="col-xs-2">
-                        <div class="drop-left">
-                        <li>
-                          <b><%= link_to "Accueil", "#" %></b>
-                        </li>
-                        <li>
-                          <b><%= link_to "Ultimate sketches", "#" %></b>
-                        </li>
-                        <li>
-                          <b><%= link_to "À ne pas manquer", "#" %></b>
-                        </li>
-                        </div>
-                      </div>
-                      <div class="col-xs-3">
-                        <div class="drop-right">
-                          <ul class= "list-inline">
-                            <li><p><%= link_to "Talk-Show", "#" %></p></li>
-                            <li><p><%= link_to "Stand-Up", "#" %></p></li>
-                            <li><p><%= link_to "One-man show", "#" %></p></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+          <div class="container">
+            <div class="row">
+              <div class="drop">
+                <div class="col-xs-2">
+                  <div class="drop-left">
+                  <li>
+                    <b><%= link_to "Accueil", "#" %></b>
+                  </li>
+                  <li>
+                    <b><%= link_to "Ultimate sketches", "#" %></b>
+                  </li>
+                  <li>
+                    <b><%= link_to "À ne pas manquer", "#" %></b>
+                  </li>
                   </div>
                 </div>
-            </ul>
+                <div class="col-xs-3">
+                  <div class="drop-right">
+                    <ul class= "list-inline">
+                      <li><p><%= link_to "Talk-Show", "#" %></p></li>
+                      <li><p><%= link_to "Stand-Up", "#" %></p></li>
+                      <li><p><%= link_to "One-man show", "#" %></p></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
       </div>
     </div>
 
     <!-- Mes zigos -->
-    <div class="navbar-wagon-item">
-      <%= link_to "Mes Zygos", "#", class: "navbar-wagon-link" %>
+    <div class="dropdown">
+      <div class="navbar-wagon-item">
+        <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu-playlist", "data-toggle" => "dropdown" do %>
+          <span>Mes Zygos</span>
+          <span class="caret" style="margin-left: 73px"></span>
+      <% end %>
+      <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+        <% User.find(3).playlists.each do |playlist| %>
+          <li>
+            <b><%= link_to playlist.name, playlist_path(playlist) %></b>
+          </li>
+        <% end %>
+      </ul>
+      </div>
     </div>
-
   </div>
 
   <!-- zigomètre -->
