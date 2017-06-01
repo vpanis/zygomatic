@@ -26,6 +26,17 @@ header {
   // -webkit-box-shadow: #bdc3c7 0 5px 5px;
   // -moz-box-shadow: #bdc3c7 0 5px 5px;
   box-shadow: #bdc3c7 0 5px 5px;
+
+  .fa {
+    color: $brand-yellow;
+    font-size: 30px!important;
+  }
+
+  b {
+    color: $brand-yellow;
+    font-family: $header-font;
+    font-size: 30px;
+  }
 }
 
 .bg {

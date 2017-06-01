@@ -18,8 +18,7 @@
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-
-    setInterval( "clickOnCarouselRight()", 1000 );
+    setInterval( "clickOnCarouselRight()", 2000 );
     function clickOnCarouselRight(){
         $('.right').click();
     }
