@@ -1,0 +1,20 @@
+<h2 class="text-center">Sketches :</h2>
+<% if @products.blank? %>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-xs-12 text-center">
+				<h4 class="text-center">Désolé, aucun sketch ne correspond à votre recherche <%= params[:search] %></h4>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="container">
+		<div class="row">
+			<% @skits.each do |skit| %>
+				<div class="col-xs-12 col-xs-12 text-center">	
+					<%= render 'pages/shared/card', skit: skit %>
+				</div>
+			<% end %>
+		</div>
+	</div>		
+<% end %>

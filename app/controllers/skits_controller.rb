@@ -2,7 +2,11 @@ class SkitsController < ApplicationController
   before_action :set_skit, only: [:show]
 
   def index
-
+    if params[:search]
+      @skits = Skit.search(params[:search])
+    else
+      @skits = nil
+    end
   end
 
   def show
