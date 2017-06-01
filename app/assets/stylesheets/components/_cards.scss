@@ -44,9 +44,9 @@ header {
   width: 300px;
   height: 210px; }
 
-.bio:hover > .desc {
-  cursor: pointer;
-  opacity: 1; }
+.bio {
+  position: relative;
+}
 
 .card-comedian-avatar {
   position: absolute;
@@ -175,12 +175,23 @@ header {
   -webkit-transition-timing-function: ease-in;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in; }
-  .desc h3 {
-    font-size: 1.2em;
-    margin-bottom: .5em; }
-  .desc p {
-    font-size: .9em;
-    line-height: 1.5em; }
+  transition-timing-function: ease-in;
+  text-decoration: none;
+  color: $brand-yellow;
+  font-size: 30px;
+  padding: 20px 20px;
+    b, p {
+      font-family: $header-font;
+    }
+    p {
+      color: white;
+      font-size: 20px;
+      text-decoration: none!important;
+    }
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
 
 
