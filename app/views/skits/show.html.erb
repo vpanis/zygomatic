@@ -1,31 +1,69 @@
-<!-- video player -->
-<div class="embed-player">
-  <div id="large-player" class='player'></div>
-</div>
-
-<div id="miniature-player" class='player'></div>
-
-<!-- modal for review -->
-<div class="rate">
-  <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
-    <ul class="list-inline">
-      <li><i class="fa fa-smile-o"></i></li>
-      <li><h4>rate me!</h4></li>
-    </ul>
-  <% end %>
-</div>
-
-<div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+<div class="showpage">
+  <div class="left-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- video player -->
+          <div class="embed-player">
+            <div id="large-player" class='player'></div>
+          </div>
+          <!-- end -->
+        </div>
       </div>
-      <%= render "review_form", skit: @skit, review: @review %>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="list-inline">
+            <div class="subvideobar">
+              <li>
+                <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;"><%= "★" * @skit_rating_average %></span></h4>
+              </li>
+              <li>
+                <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
+              </li>
+              <li>
+                <!-- modal for review -->
+                <div class="rate">
+                  <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+                    <ul class="list-inline">
+                      <li><i class="fa fa-smile-o"></i></li>
+                      <li><h4>Evaluez-moi !</h4></li>
+                    </ul>
+                  <% end %>
+                </div>
+
+                <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
+                      </div>
+                      <%= render "review_form", skit: @skit, review: @review %>
+                    </div>
+                  </div>
+                </div>
+                <!-- end -->
+              </li>
+            </div>
+          </ul>
+
+        </div>
+      </div>
+
+
     </div>
   </div>
+  <div class="right-content">
+    <div id="miniature-player" class='player'></div>
+  </div>
 </div>
+
+
+
+
+
+
+
 <!-- carrousel of the playlist -->
 <%= render "pages/shared/showcard" %>
 <!-- average rating + nb of comments -->
