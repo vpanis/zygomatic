@@ -21,6 +21,8 @@
 # @skit.nb_of_views = 3498
 # @skit.save!
 
+require "csv"
+
 csv_comedians = File.read(Rails.root.join('lib', 'seeds', 'comedians.csv'))
 csv = CSV.parse(csv_comedians, :headers => true, col_sep: ';')
 puts csv_comedians
