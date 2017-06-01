@@ -4,6 +4,11 @@ class SkitsController < ApplicationController
   def index
     if params[:search]
       @skits = Skit.search(params[:search])
+      @comedians = []
+      @skits.each do |skit|
+        @comedians << skit.comedian
+      end
+      @comedians.uniq!
     else
       @skits = nil
     end

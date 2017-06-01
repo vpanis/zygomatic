@@ -2,27 +2,27 @@
         <div class="skit-card">
           <header>
             <div class="bio">
-              <%= image_tag "avatar_humourist.png", class: "bg" %><!--  skit.pic_skit -->
+              <%= cl_image_tag comedian.picture.path, class: "bg" %><!--  skit.pic_skit -->
               <div class="desc">
                 <br>
                 <div>
-                  <p>Comique inoubliable, Coluche a donné bcp de bonheur aux français et particulièrement à Xavier Martinet qui le considère comme son modèle.</p>
+                  <p><%= comedian.short_description %></p>
                   <div class="btn btn-primary btn-play-banner btn-sm"><i class="fa fa-id-card-o" aria-hidden="true" style='font-size: 20px'></i><b> Voir la fiche</b></div>
                 </div><!-- comedian.short_description -->
               </div>
             </div>
 
             <h3 class="card-name-artist text center">
-              <b>COLUCHE</b> <!-- comedian.name -->
+              <b><%= comedian.name.upcase %></b> <!-- comedian.name -->
             </h3>
           </header>
           <div class="card-data-artist">
             <div class= "card-data-info text-center">
-              <div>123</div>
+              <div>2000</div>
               <div>videos</div> <!-- comedian.skit.count -->
             </div>
             <div class= "card-data-description text-center">
-            <div>#potache #franchouillard #flics #femmes</div> <!-- skit.name -->
+            <div>One Man Show</div> <!-- skit.name -->
             </div>
             <div class= "card-ranking-item text-center">
                 <div><i class="fa fa-battery-full" aria-hidden="true" style='font-size: 25px'></i></div>
