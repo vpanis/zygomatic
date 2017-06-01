@@ -93,7 +93,7 @@
           break;
         case YT.PlayerState.PLAYING:
           var largePlayerCurrentTime = largePlayer.getCurrentTime();
-          miniaturePlayer.seekTo(largePlayerCurrentTime, false);
+          miniaturePlayer.seekTo(largePlayerCurrentTime, true);
           console.log('large-player PLAYING');
           miniaturePlayer.playVideo();
           break;
@@ -117,14 +117,14 @@
           largePlayer.stopVideo();
           break;
         case YT.PlayerState.PLAYING:
-          var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
-          largePlayer.seekTo(miniaturePlayerCurrentTime, false);
           console.log('miniature-player PLAYING');
           largePlayer.playVideo();
           break;
         case YT.PlayerState.PAUSED:
           console.log('miniature-player PAUSED');
           largePlayer.pauseVideo();
+          var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
+          largePlayer.seekTo(miniaturePlayerCurrentTime, true);
           break;
         case YT.PlayerState.BUFFERING:
           console.log('miniature-player BUFFERING');
