@@ -133,6 +133,26 @@
           console.log('miniature-player CUED');
           break;
       }
+
+    // detection of scroll at the bottom of large-player
+    var navbar_height = 70;
+    var large_player_top_position = $('#large-player').offset().top;
+    var large_player_height = $('#large-player').height();
+    var large_player_offset_height = 70;
+
+    var miniature_player_visible = true;
+
+    $(window).on('scroll', function() {
+        var y_scroll_pos = window.pageYOffset;
+        var scroll_pos_test = - navbar_height + large_player_top_position + large_player_height - large_player_offset_height;
+
+        if(y_scroll_pos > scroll_pos_test) {
+            console.log('you have below the bottom of large player');
+        }
+        if(y_scroll_pos < scroll_pos_test) {
+            console.log('you have above the bottom of large player');
+        }
+    });
     }
 
   <% end %>
