@@ -9,6 +9,11 @@ class SkitsController < ApplicationController
         @comedians << skit.comedian
       end
       @comedians.uniq!
+      # @playlists = []
+      # @skits.each do |playlist|
+      #   @playlists << skit.playlist
+      # end    
+      # @playlists.uniq!
     else
       @skits = nil
     end
