@@ -1,0 +1,19 @@
+<div class="playlist-skit-card-container">
+  <div class="playlist-skit-card-box">
+    <!-- flipping playlist-card-bio  -->
+    <%= render "pages/shared/card_flip", skit: skit %>
+    <!-- END flipping playlist-card-bio  -->
+    <div class="playlist-skit-card-data">
+        <h2><%= skit.name %> - <%= skit.comedian.name.upcase %></h2>
+        <p><%= skit.duration %> min</p>
+        <div class="marquee">
+          <p><%= skit.short_description %></p>
+        </div>
+    </div>
+  </div>
+
+  <div class="playlist-skit-card-comedian-avatar">
+    <%= cl_image_tag skit.comedian.picture.path, class: 'playlist-skit-card-avatar' %>
+    <%= link_to '', '#', class: 'playlist-skit-card-comedian-avatar-link' %>
+  </div>
+</div>
