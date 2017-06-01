@@ -75,3 +75,19 @@
     padding: 10px;
   }
 }
+
+.review-name-box {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  p {
+    margin: 0 0 0 20px;
+    font-style: italic;
+  }
+}
+
+#reviews {
+  h3 {
+    color: $brand-yellow;
+  }
+}
