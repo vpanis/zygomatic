@@ -16,14 +16,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
-  def destroy
-
-  end
-
   def review_params
     params.require(:review).permit(:content, :rating)
   end

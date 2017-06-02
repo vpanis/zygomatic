@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531143911) do
+ActiveRecord::Schema.define(version: 20170602091541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170531143911) do
     t.string   "full_description"
     t.string   "category"
     t.string   "youtube_path"
+    t.float    "average_rating"
     t.index ["comedian_id"], name: "index_skits_on_comedian_id", using: :btree
   end
 
