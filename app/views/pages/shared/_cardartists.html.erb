@@ -4,10 +4,12 @@
             <div class="bio">
               <%= cl_image_tag comedian.picture.path, class: "bg" %><!--  skit.pic_skit -->
               <div class="desc">
-                <br>
                 <div>
-                  <p><%= comedian.short_description %></p>
-                  <div class="btn btn-primary btn-play-banner btn-sm"><i class="fa fa-id-card-o" aria-hidden="true" style='font-size: 20px'></i><b> Voir la fiche</b></div>
+                  <p>
+                    <%= comedian.short_description %>
+                  </p>
+                  <i class="fa fa-id-card-o" aria-hidden="true" style='font-size: 20px'></i>
+                  <b>Voir la fiche</b>
                 </div><!-- comedian.short_description -->
               </div>
             </div>
