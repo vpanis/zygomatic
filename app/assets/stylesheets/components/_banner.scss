@@ -9,14 +9,12 @@
   padding: 20px;
 }
 
-.fa-play-circle-o {
+.btn-play-oval {
   opacity: 0.0;
-  height: 100%;
-  width: 100%;
   color: $brand-yellow;
   display: flex;
-  justify-content: center;
-  font-size: 70px;
+  margin: 0 auto;
+  align-items: center;
   text-decoration: none;
 }
 
@@ -39,7 +37,7 @@
 .banner-home:hover {
   opacity: 0.9;
   transition: 0.2s;
-  .fa-play-circle-o {
+  .btn-play-oval {
     opacity: 1;
   }
   a {
