@@ -2,6 +2,9 @@
         <div class="skit-card">
           <header>
             <div class="bio">
+              <div class ="card-comedian-name">
+                <b><%= skit.comedian.name %></b>
+              </div>
               <%= cl_image_tag skit.picture.path, class: 'bg' %>
               <a href=<%= skit_path(skit) %> class="desc">
                 <p>
@@ -16,11 +19,11 @@
             </div>
 
             <div class="card-ranking">
-              <div class= "card-ranking-item text-center">
-                <div><b><%= skit.comedian.name %></b></div>
+              <div class= "card-ranking-category text-center">
+                <div></div>
               </div>
               <div class= "card-ranking-item text-center">
-                <div><i class="fa fa-battery-full" aria-hidden="true" style='font-size: 25px'></i></div> <!-- skit.ranking -->
+                <div><%= skit.average_ranking.round %><i class="fa fa-battery-full" aria-hidden="true" style='font-size: 15px'></i></div> <!-- skit.ranking -->
               </div>
             </div>
           </header>
