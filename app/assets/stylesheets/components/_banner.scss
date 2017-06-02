@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   font-size: 70px;
+  text-decoration: none;
 }
 
 .sketch-du-jour {
@@ -27,11 +28,22 @@
   justify-content: space-between;
 }
 
+.description {
+  color: white;
+}
+
+.sketch-name {
+  font-size: 80px;
+}
+
 .banner-home:hover {
   opacity: 0.9;
   transition: 0.2s;
   .fa-play-circle-o {
     opacity: 1;
+  }
+  a {
+    text-decoration: none;
   }
 }
 
