@@ -9,7 +9,11 @@
   $('#reviews').append(new_review);
   // Show the new review with an animation!
   new_review.slideDown();
+  $('.commentaries').html("<%= j link_to @skit.reviews.length.to_s + ' Commentaires', skit_path(@skit, anchor: 'on_top_reviews') %>");
+  $('#overall_rating_note').html("<%= j ('★' * @skit_rating_average) %>");
   // Reset the form
   $('#new_review').html("<%= j render 'skits/review_form', skit: @skit, review: Review.new %>");
-  location.hash = "reviews";
+  setTimeout(function() {
+    $(window).scrollTo("#reviews");
+  }, 500);
 <% end %>

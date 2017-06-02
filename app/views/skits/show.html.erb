@@ -21,11 +21,11 @@
                 <div class="subvideobar">
                   <!-- average rating -->
                   <li>
-                    <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;"><%= "★" * @skit_rating_average %></span></h4>
+                    <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;" id="overall_rating_note"><%= "★" * @skit_rating_average %></span></h4>
                   </li>
                   <!-- # of comments and link to them -->
                   <li>
-                    <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
+                    <h4 class="commentaries"><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
                   </li>
                   <!-- Add a review -->
                   <li>
@@ -100,36 +100,15 @@
           <div class="row">
             <div class="col-xs-12" id="reviews">
               <div class="head-title-box">
-                <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;">Note globale : <%= "★" * @skit_rating_average %></span></h2>
+                <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;" id="overall_rating_note">Note globale : <%= "★" * @skit_rating_average %></span></h2>
                 <div class="highlight"></div>
               </div>
                 <% if @skit.reviews.blank? %>
                   <p>No rating yet</p>
                   <hr class="col-12">
                 <% else %>
-                  <% @skit.reviews.each do |review| %>
-                    <div class="row">
-                      <div class="col-xs-5 col-sm-3">
-                        <div class="review-name-box">
-                            <% comment_pic = review.user.picture.path %>
-                            <% if comment_pic.nil? %>
-                              <%= image_tag 'http://placehold.it/60x60', class: "avatar-very-large" %>
-                            <% elsif %>
-                              <%= image_tag cl_image_path(comment_pic), class: "avatar-very-large" %>
-                            <% end %>
-                            <div>
-                              <p><%= review.user.first_name %></p>
-                            </div>
-                        </div>
-                      </div>
-                      <div class="col-xs-7 col-sm-9">
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <%= render "reviews/show", review: review %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <% @skit.reviews.order(created_at: :desc).each do |review| %>
+                    <%= render "reviews/show", review: review %>
                   <% end %>
                 <% end %>
             </div>
@@ -174,7 +153,7 @@
                     </li>
                     <!-- # of comments and link to them -->
                     <li>
-                      <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
+                      <h4 class="commentaries"><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
                     </li>
                     <!-- Add a review -->
                     <li>

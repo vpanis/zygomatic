@@ -1,4 +1,22 @@
-<h3><span style="color: $brand-yellow;"><%= "★" * review.rating %></span></h3>
-<p><em><%= review.content %></em></p>
-<p style= "font-size: 12px;"><%= review.created_at.strftime("%B %Y")%></p>
-
+<div class="col-xs-5 col-sm-3">
+  <div class="review-name-box">
+      <% avatar_url = "http://placehold.it/30x30" %>
+      <% if !review.user.picture.blank? %>
+        <% comment_pic = review.user.picture.path %>
+        <% avatar_url = cl_image_path(comment_pic) %>
+      <% end %>
+      <%= image_tag avatar_url, class: "avatar-very-large" %>
+      <div>
+        <p><%= review.user.first_name %></p>
+      </div>
+  </div>
+</div>
+<div class="col-xs-7 col-sm-9">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3><span style="color: $brand-yellow;"><%= "★" * review.rating %></span></h3>
+      <p><em><%= review.content %></em></p>
+      <p style= "font-size: 12px;"><%= review.created_at.strftime("%B %Y")%></p>
+    </div>
+  </div>
+</div>
