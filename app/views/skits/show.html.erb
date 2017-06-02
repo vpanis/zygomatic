@@ -98,11 +98,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12" id="reviews">
+            <div class="col-xs-12">
               <div class="head-title-box">
                 <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;" id="overall_rating_note">Note globale : <%= "★" * @skit_rating_average %></span></h2>
                 <div class="highlight"></div>
               </div>
+              <div id="reviews">
                 <% if @skit.reviews.blank? %>
                   <p>No rating yet</p>
                   <hr class="col-12">
@@ -111,6 +112,7 @@
                     <%= render "reviews/show", review: review %>
                   <% end %>
                 <% end %>
+              </div>
             </div>
           </div>
         </div>
