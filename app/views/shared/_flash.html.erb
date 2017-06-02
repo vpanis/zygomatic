@@ -10,3 +10,19 @@
     <%= alert %>
   </div>
 <% end %>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $('.alert').hide();
+    $('.alert').slideDown();
+    setTimeout(function(){
+     $('.alert').slideUp();
+     }, 2000);
+
+    $('.notice').hide();
+    $('.notice').slideDown();
+    setTimeout(function(){
+     $('.notice').slideUp();
+     }, 2000);
+  <% end %>
+<% end %>
