@@ -45,7 +45,7 @@ csv_users = File.read(Rails.root.join('lib', 'seeds', 'users.csv'))
 csv = CSV.parse(csv_users, :headers => true, col_sep: ';')
 puts csv_users
 csv.each do |row|
-  user = User.create(first_name: row[0], last_name: row[1], email: row[2], fun_level: row[3], password: row[4])
+  user = User.create(first_name: row[0], last_name: row[1], email: row[2], fun_level: row[3], password: row[5], password_confirmation: row[6])
   user.picture_url = row[4]
   user.save!
 end
