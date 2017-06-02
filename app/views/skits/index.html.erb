@@ -34,9 +34,10 @@
 <% else %>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-4">
 			<% @comedians.each do |comedian| %>
+				<div class="col-xs-12 col-md-4">
 				<%= render 'pages/shared/cardartists', comedian: comedian %>
+				</div>
 			<% end %>
 		</div>
 	</div>		
