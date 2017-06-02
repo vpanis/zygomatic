@@ -100,6 +100,7 @@ header {
   position: relative;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   line-height: 20px;
   margin-left: 8px;
   margin-right: 8px;
@@ -136,7 +137,7 @@ header {
 
 .card-data-description {
   flex: 1 0 50%;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .card-ranking {
@@ -144,20 +145,33 @@ header {
   display: flex;
   justify-content: space-between;
   color: $brand-yellow;
-  margin-top: 4px;
-  margin-left: 5px;
+  margin-top: 10px;
+  margin-left: 0px;
   margin-right: 0px;
 }
 
 .card-ranking-item {
-  font-size: 20px;
   flex: 0 0 30%;
+}
+
+.card-ranking-category {
+  flex: 0 0 30%;
+  font-size: 15px;
+  color: $dark-grey;
+}
+
+.card-comedian-name {
+  position: absolute;
+  font-size: 100%;
+  flex: 0 0 30%;
+  top: 7px;
+  left: 7px;
 }
 
 .desc {
   position: absolute;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 205px;
   padding: 1.2em 1em 0 1em;

@@ -21,6 +21,7 @@
 
 .card-avatar {
   width: 100%;
+  height: 100%;
   border: 6px solid $brand-yellow;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -28,7 +29,8 @@
   -o-border-radius: 50%;
   border-radius: 50%;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  background-color: $light-grey; }
   .card-avatar img {
     width: 65px;
     height: 65px; }

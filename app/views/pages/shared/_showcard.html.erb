@@ -7,7 +7,10 @@
                 <div class="tile">
                   <div class="tile__media">
                     <% skit = @recommended_skits.first %>
-                    <%= cl_image_tag skit.picture.path, height: 140, width: 250, crop: :scale, class: "title__img" %>
+                    <a href="skits/1">
+
+                      <%= cl_image_tag skit.picture.path, height: 140, width: 250, crop: :scale, class: "title__img" %>
+                    </a>
                   </div>
                   <div class="tile__details">
                     <div class="tile__title">
@@ -28,7 +31,6 @@
                 <div class="row__inner">
                   <div class="tile">
                     <div class="tile__media">
-
                       <%= cl_image_tag skit.picture.path, class: "tile__img" %>
                     </div>
                     <div class="tile__details">
