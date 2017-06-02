@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def create
     @skit = Skit.find(params[:skit_id])
     @review = Review.new(review_params)
+    @review.user = current_user
     @review.skit = @skit
     if @review.save
       nth_rating = @review.rating
