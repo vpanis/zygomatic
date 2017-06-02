@@ -71,10 +71,20 @@
 
 .head-title-box {
   margin-top: 10px;
-  background-color: $brand-yellow;
   text-shadow: 1px 1px 0px white;
+  position: relative;
   h2 {
     padding: 10px;
+    z-index: 2;
+  }
+  .highlight {
+    position: absolute;
+    background-color: $brand-yellow;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 25px;
+    z-index: -1;
   }
 }
 
