@@ -1,44 +1,44 @@
-<h2 class="text-center">Sketches :</h2>
-<% if @skits.blank? %>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-md-offset-3">
-				<h4 class="text-center">Désolé, aucun sketch ne correspond à votre recherche <%= params[:search] %></h4>
-			</div>
-		</div>
+<div class="container">
+	<div class="row">
+    <div class="col-xs-12">
+      <div class="head-title-box">
+        <h2>Sketches</h2>
+        <div class="highlight"></div>
+      </div>
+    </div>
+      <% if @skits.blank? %>
+        <h4 >
+          Pas de blagues:(
+        </h4>
+      <% else %>
+        <% @skits.each do |skit| %>
+          <div class="col-xs-12 col-md-4">
+            <%= render 'pages/shared/card', skit: skit %>
+          </div>
+        <% end %>
+      <% end %>
 	</div>
-<% else %>
-	<div class="container">
-		<div class="row">
-			<% @skits.each do |skit| %>
-				<div class="col-xs-12 col-md-4">	
-					<%= render 'pages/shared/card', skit: skit %>
-				</div>
-			<% end %>
-		</div>
-	</div>		
-<% end %>
+</div>
 
-<hr>
-<br>
 
-<h2 class="text-center">Artistes :</h2>
-<% if @skits.blank? %>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-md-6 col-md-offset-3">
-				<h4 class="text-center">Désolé, aucun ami ne correspond à votre recherche "<%= params[:search] %>"</h4>
-			</div>
-		</div>
+<div class="container">
+	<div class="row">
+    <div class="col-xs-12">
+      <div class="head-title-box">
+        <h2>Artistes</h2>
+        <div class="highlight"></div>
+      </div>
+    </div>
+    <% if @comedians.blank? %>
+      <h4 >
+        Pas d'ami :(
+      </h4>
+    <% else %>
+      <% @comedians.each do |comedian| %>
+        <div class="col-xs-12 col-md-4">
+        <%= render 'pages/shared/cardartists', comedian: comedian %>
+        </div>
+      <% end %>
+    <% end %>
 	</div>
-<% else %>
-	<div class="container">
-		<div class="row">
-			<% @comedians.each do |comedian| %>
-				<div class="col-xs-12 col-md-4">
-				<%= render 'pages/shared/cardartists', comedian: comedian %>
-				</div>
-			<% end %>
-		</div>
-	</div>		
-<% end %>
+</div>
