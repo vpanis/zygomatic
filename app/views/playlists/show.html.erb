@@ -1,5 +1,14 @@
 <div class="banner-playlist"></div>
 
+<div class="container text-center">
+<br>
+  <div class=" text-center playlist-global-btn btn">
+    <i class="fa fa-play-circle" aria-hidden="true" style='color: white; font-size: 40px'></i>
+    <b> Lancer la playlist "<%= @playlist.name %>" !</b>
+  </div>
+</div>
+<br>
+
 <div class="container">
   <ul id="sortable">
     <% @playlist.skits.each do |skit| %>
