@@ -21,11 +21,11 @@
                 <div class="subvideobar">
                   <!-- average rating -->
                   <li>
-                    <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;"><%= "★" * @skit_rating_average %></span></h4>
+                    <h4 id="overall_rating">Note globale : <span style="color: $brand-yellow;" id="overall_rating_note"><%= "★" * @skit_rating_average %></span></h4>
                   </li>
                   <!-- # of comments and link to them -->
                   <li>
-                    <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
+                    <h4 class="commentaries"><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "on_top_reviews") %></h4>
                   </li>
                   <!-- Add a review -->
                   <li>
@@ -104,7 +104,7 @@
                   <p>No rating yet</p>
                   <hr class="col-12">
                 <% else %>
-                  <% @skit.reviews.each do |review| %>
+                  <% @skit.reviews.order(created_at: :desc).each do |review| %>
                     <%= render "reviews/show", review: review %>
                   <% end %>
                 <% end %>
@@ -150,7 +150,7 @@
                     </li>
                     <!-- # of comments and link to them -->
                     <li>
-                      <h4><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
+                      <h4 class="commentaries"><%= link_to @skit.reviews.length.to_s + " Commentaires", skit_path(@skit, anchor: "reviews") %></h4>
                     </li>
                     <!-- Add a review -->
                     <li>
