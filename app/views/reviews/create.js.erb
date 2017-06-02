@@ -6,7 +6,7 @@
   var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
   // Add it to the DOM, at the end of the existing reviews. It's still hidden.
   $("#modalReview_" + <%= @skit.id.to_s %>).modal("hide");
-  $('#reviews').append(new_review);
+  $('#reviews').prepend(new_review);
   // Show the new review with an animation!
   new_review.slideDown();
   $('.commentaries').html("<%= j link_to @skit.reviews.length.to_s + ' Commentaires', skit_path(@skit, anchor: 'on_top_reviews') %>");
