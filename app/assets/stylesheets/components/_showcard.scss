@@ -41,6 +41,9 @@
   display: flex;
   display-wrap: wrap;
   justify-content: space-around;
+  h6, h5 {
+    color: white;
+  }
 }
 .tile__details:after,
 .tile__details:before {
