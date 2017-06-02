@@ -36,7 +36,7 @@ csv_skits = File.read(Rails.root.join('lib', 'seeds', 'skits2.csv'))
 csv = CSV.parse(csv_skits, :headers => true, col_sep: ';')
 puts csv_skits
 csv.each do |row|
-  skit = Skit.new(name: row[0], comedian_id: row[1], youtube_path: row[2], duration: row[3], nb_of_views: row[4], short_description: row[5], full_description: row[6], category: row[8])
+  skit = Skit.new(name: row[0], comedian_id: row[1], youtube_path: row[2], duration: row[3], nb_of_views: row[4], short_description: row[5], full_description: row[6], category: row[8], average_rating: 0)
   skit.picture_url = row[7]
   skit.save!
 end
@@ -55,6 +55,11 @@ csv = CSV.parse(csv_reviews, :headers => true, col_sep: ';')
 puts csv_reviews
 csv.each do |row|
   Review.create(content: row[0], rating: row[1], user: User.find(row[2]), skit_id: row[3])
+  nth_rating = row[1].to_i
+  skit = Skit.find(row[3].to_i)
+  nb_of_reviews = skit.reviews.count
+  skit.average_rating = (nth_rating + (skit.average_rating * (nb_of_reviews - 1))).fdiv(nb_of_reviews)
+  skit.save!
 end
 
 csv_playlists = File.read(Rails.root.join('lib', 'seeds', 'playlists.csv'))

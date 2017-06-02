@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.skit = @skit
     if @review.save
+      nth_rating = @review.rating
+      nb_of_reviews = @skit.reviews.count
+      @skit.average_rating = (nth_rating + (@skit.average_rating * (nb_of_reviews - 1))).fdiv(nb_of_reviews)
+      @skit.save!
       respond_to do |format|
         format.html { redirect_to skit_path(@review.skit), notice: "Yeah ! Thanks for this rating !" }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
@@ -14,14 +18,6 @@ class ReviewsController < ApplicationController
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
     end
-  end
-
-  def update
-
-  end
-
-  def destroy
-
   end
 
   def review_params
