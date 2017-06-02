@@ -3,35 +3,12 @@
         <div class="carousel-inner">
           <div class="item active">
             <div class="col-xs-4">
-              <div class="row__inner">
-                <div class="tile">
-                  <div class="tile__media">
-                    <% skit = @recommended_skits.first %>
-                    <a href="skits/1">
-
-                      <%= cl_image_tag skit.picture.path, height: 140, width: 250, crop: :scale, class: "title__img" %>
-                    </a>
-                  </div>
-                  <div class="tile__details">
-                    <div class="tile__title">
-                      <h6><%= skit.name %></h6>
-                    </div>
-                    <div class="tile__artist">
-                      <h5><%= skit.comedian.name %> ~ <span style="font-size: 14px;"><em><%= skit.duration %></em></span></h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <% @recommended_skits[1..-1].each do |skit| %>
-            <div class="item">
-              <div class="col-xs-4">
+              <% skit = @recommended_skits.first %>
+              <%= link_to skit_path(skit) do %>
                 <div class="row__inner">
                   <div class="tile">
                     <div class="tile__media">
-                      <%= cl_image_tag skit.picture.path, class: "tile__img" %>
+                      <%= cl_image_tag skit.picture.path, height: 140, width: 250, crop: :scale, class: "title__img" %>
                     </div>
                     <div class="tile__details">
                       <div class="tile__title">
@@ -43,6 +20,30 @@
                     </div>
                   </div>
                 </div>
+              <% end %>
+            </div>
+          </div>
+
+          <% @recommended_skits[1..-1].each do |skit| %>
+            <div class="item">
+              <div class="col-xs-4">
+                <%= link_to skit_path(skit) do %>
+                  <div class="row__inner">
+                    <div class="tile">
+                      <div class="tile__media">
+                        <%= cl_image_tag skit.picture.path, class: "tile__img" %>
+                      </div>
+                      <div class="tile__details">
+                        <div class="tile__title">
+                          <h6><%= skit.name %></h6>
+                        </div>
+                        <div class="tile__artist">
+                          <h5><%= skit.comedian.name %> ~ <span style="font-size: 14px;"><em><%= skit.duration %></em></span></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
