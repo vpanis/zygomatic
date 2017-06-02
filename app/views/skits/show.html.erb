@@ -98,7 +98,7 @@
           <div class="row">
             <div class="col-xs-12" id="reviews">
               <div class="head-title-box">
-                <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;">Note globale : <%= "★" * @skit_rating_average %></span></h2>
+                <h2><%= @skit.reviews.length.to_s + " Commentaires"%> | <span style="font-size: 22px;" id="overall_rating_note">Note globale : <%= "★" * @skit_rating_average %></span></h2>
               </div>
                 <% if @skit.reviews.blank? %>
                   <p>No rating yet</p>
