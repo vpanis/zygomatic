@@ -58,7 +58,7 @@ csv.each do |row|
   nth_rating = row[1].to_i
   skit = Skit.find(row[3].to_i)
   nb_of_reviews = skit.reviews.count
-  skit.average_rating =
+  skit.average_rating = (nth_rating + (skit.average_rating * (nb_of_reviews - 1))).fdiv(nb_of_reviews)
   skit.save!
 end
 
