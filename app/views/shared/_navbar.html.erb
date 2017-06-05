@@ -74,13 +74,26 @@
       <p><span style="color: #FFCD38;">75</span> zigos ce mois-ci !</p>
     </div>
   <% end %>
+
   <!-- Search form -->
-   <%= form_tag( skits_path, :method => "get", id: "search-form", class: "navbar-wagon-search", remote: true) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Tapez ici pour rire !", class: "navbar-wagon-search-input" %>
-    <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
-      <i class="fa fa-search"></i>
+  <% if current_page?(root_path) || current_page?(skits_path) %>
+    <%= form_tag( skits_path, :method => "get", id: "search-form", class: "navbar-wagon-search") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Tapez ici pour rire !", class: "navbar-wagon-search-input" %>
+      <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
+       <i class="fa fa-search"></i>
+      <% end %>
     <% end %>
-   <% end %>
+  <% else %>
+    <%= form_tag( skits_path, :method => "get", id: "search-form", class: "navbar-wagon-search", remote: true) do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Tapez ici pour rire !", class: "navbar-wagon-search-input" %>
+      <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
+       <i class="fa fa-search"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+
 
 
   <!-- Right Navigation -->

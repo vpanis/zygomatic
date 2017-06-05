@@ -19,7 +19,7 @@ class SkitsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to restaurants_path }
+      format.html { render 'skits/index' }
       format.js  # <-- will render `app/views/skits/index.js.erb`
     end
   end
