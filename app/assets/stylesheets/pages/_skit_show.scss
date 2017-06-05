@@ -26,7 +26,7 @@
   z-index: 10;
 }
 
-.rate {
+.rate, .add_to_playlist, .share {
   li:nth-child(2) {
     margin-left: -20px;
     list-style: none;
@@ -35,7 +35,6 @@
     text-decoration: none;
   }
 }
-
 
 .submit-btn, .cancel-btn {
   border: none;

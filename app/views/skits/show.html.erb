@@ -39,7 +39,7 @@
                       <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
                         <ul class="list-inline">
                           <li><i class="fa fa-smile-o"></i></li>
-                          <li><h4>Evaluez-moi !</h4></li>
+                          <li><h4>Evalue-moi !</h4></li>
                         </ul>
                       <% end %>
                     </div>
@@ -66,6 +66,26 @@
                       </div>
                     <% end %>
                     <!-- end -->
+                  </li>
+                  <li>
+                    <div class="add_to_playlist">
+                      <%= link_to "#" do %>
+                        <ul class="list-inline">
+                          <li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                          <li><h4>Ajoute-moi à ta playlist</h4></li>
+                        </ul>
+                      <% end %>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="share">
+                      <%= link_to "#" do %>
+                        <ul class="list-inline">
+                          <li><i class="fa fa-share" aria-hidden="true"></i></li>
+                          <li><h4>Partage-moi</h4></li>
+                        </ul>
+                      <% end %>
+                    </div>
                   </li>
                 </div>
               </ul>
