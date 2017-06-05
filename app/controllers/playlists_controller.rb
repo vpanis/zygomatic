@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [ :show, :create, :update, :destroy ]
+  before_action :set_launch, only: [ :launch ]
 
   def index
 
@@ -19,10 +20,20 @@ class PlaylistsController < ApplicationController
 
   end
 
+  def launch
+    current_user.update(current_playlist: @playlist)
+    redirect_to skit_path(@skit)
+  end
+
   private
 
   def set_playlist
     @playlist = Playlist.find(params[:id])
+  end
+
+  def set_launch
+    @playlist = Playlist.find(params[:playlist_id])
+    @skit = Skit.find(params[:id])
   end
 
 end
