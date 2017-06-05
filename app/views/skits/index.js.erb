@@ -1,4 +1,13 @@
+// in search mode remove scroll effect
+var in_search_mode = true;
+
 $('#search_skit').empty();
+$('#playing-skit').hide();
+$('.quizzcard').hide();
+$('#search-in-skit-show').show();
+$('#miniature-player').show();
+$('#minipanel').show();
+
 <% if @skits.blank? %>
   var search_skit = $("<h4>Pas de blagues :(</h4>");
   $('#search_skit').append(search_skit);

@@ -1,3 +1,7 @@
+    // 1. check whether you are in search mode or in video mode
+    // by default: video mode
+    var in_search_mode = false;
+
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
@@ -41,6 +45,7 @@
     }
     $('#miniature-player').hide();
     $('#minipanel').hide();
+    $('#search-in-skit-show').hide();
 
     // 4. The API will call this function when the video player is ready.
     function onLargePlayerReady(event) {
@@ -113,13 +118,13 @@
         var y_scroll_pos = window.pageYOffset;
         var scroll_pos_test = - navbar_height + large_player_top_position + large_player_height - large_player_offset_height;
 
-        if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible) {
+        if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible && !in_search_mode) {
           miniature_player_visible = true;
           $('#miniature-player').fadeIn();
           $('#minipanel').fadeIn();
           console.log('you have below the bottom of large player');
         }
-        if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible) {
+        if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && !in_search_mode) {
           miniature_player_visible = false;
           $('#miniature-player').fadeOut();
           $('#minipanel').fadeOut();
