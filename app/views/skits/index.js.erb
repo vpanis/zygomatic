@@ -1,3 +1,4 @@
+$('#search_skit').empty();
 <% if @skits.blank? %>
   var search_skit = $("<h4>Pas de blagues :(</h4>");
   $('#search_skit').append(search_skit);
@@ -8,6 +9,7 @@
   <% end %>
 <% end %>
 
+$('#search_comedian').empty();
 <% if @comedians.blank? %>
   var search_comedian = $("<h4>Pas d'amis' :(</h4>");
   $('#search_comedian').append(search_comedian);
