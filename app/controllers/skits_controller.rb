@@ -25,6 +25,7 @@ class SkitsController < ApplicationController
   end
 
   def show
+    @next_skits = find_next_skits(6)
     @recommended_skits = find_recommended_skits(6)
     @skit = Skit.find(params[:id])
     @review = Review.new
@@ -47,6 +48,22 @@ class SkitsController < ApplicationController
 
   def skit_params
       params.require(:skit).permit(:name, :tag_list´) ## Rails 4 strong params usage
+  end
+
+  def find_next_skits(nb_of_skits)
+    next_skits = RecommendedSkitsService.find(skit: @skit, user: current_user, nb_of_skits: nb_of_skits)
+
+    current_user.current_playlist = current_playlist
+    if current_playlist
+      all_skits_from_current_playlist = current_user.current_playlist.skits.to_a
+      if index_skit = all_skits.index("@skit")
+        all_skits[(index_skit+1)..(index_skit+1+nb_of_skits)]
+      end
+    else
+      RecommendedSkitsService.find(skit: @skit, user: current_user, nb_of_skits: nb_of_skits)
+    end
+
+    next_skits
   end
 
   def find_recommended_skits(nb_of_skits)
