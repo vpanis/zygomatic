@@ -9,6 +9,7 @@ class PlaylistSkitsController < ApplicationController
       @playlist_skit.playlist_id = playlist_id.to_i
       @skit = Skit.find(@playlist_skit.skit_id)
       @playlist = Playlist.find(playlist_id)
+      @playlist_skit.skit_position = @playlist.playlist_skits.map { |playlist_skit| playlist_skit.skit_position}.max + 1
       unless @playlist.skits.include?(@skit)
         @playlist_skit.save!
         @playlist_names << @playlist.name
