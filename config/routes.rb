@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [ :show, :edit, :update ]
   resources :playlists, only: [ :index, :show, :create, :update, :destroy ]
+  get '/playlists/:playlist_id/skits/:id', to: 'playlists#launch', as: 'launch'
   resources :playlist_skits, only: [ :create, :update, :destroy ]
   resources :artists, only: :show
 

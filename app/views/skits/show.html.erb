@@ -17,7 +17,7 @@
           <!--  RECOMMENDATIONS -->
           <!--  REVIEWS -->
 
-          <%= render 'playing_skit', skit: @skit, review: @review, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average %>
+          <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average %>
           <%= render 'search_skits', skits: @recommended_skits, comedians: [] %>
 
         </div>
