@@ -1,5 +1,5 @@
 meta_product_name: "Zygomatic"
 meta_title: "Zygomatic - one laugh a day keeps the doctor away"
 meta_description: "L'humour, c'est bien. Surtout quand c'est drôle."
-meta_image: "zygomatic-logo-for-facebook.png"                       # should exist in `app/assets/images/`
+meta_image: "zygomatic-logo-for-facebook.jpg"                       # should exist in `app/assets/images/`
 twitter_account: "@zygomatic"   # required for Twitter Cards
