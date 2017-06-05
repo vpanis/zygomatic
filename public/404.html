@@ -1,67 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Ooops Hula Ooops</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+
+  @font-face {
+    font-family: "DKlampion";
+    src: font-url('DKlampion/dk_lampion.eot');
+    src: font-url('DKlampion/dk_lampion.eot?#iefix') format('embedded-opentype'),
+         font-url('DKlampion/dk_lampion.woff') format('woff'),
+         font-url('DKlampion/dk_lampion.ttf') format('truetype')
+  }
+
+  h1 {
+    font-family: "DKLampion";
+    font-size: 70px;
+  }
+
+  .error-page {
+    background-color: #FFCD38;
+    color: white;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .padded {
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+
+  .button {
+    background-color: #FDB631;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 2px solid white;
+    margin-left: 20px;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: "DKlampion";
+    font-size: 30px;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+
+  .button:hover {
+    background-color: #FFCD38;
   }
+
+  a:hover {
+    text-decoration: none;
+    background-color: #FFCD38;
+    color: white;
+    font-size: 30px;
+  }
+
+  h1 {
+    margin-top: 30px;
+  }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body class="error-page">
+  <!-- This file lives in public/500.html -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1>Oooops! Y a a rien de drôle par ici!<br/>
+        </h1>
+        <h1>Mais ce n'est pas une raison de perdre la banane !</h1>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <br/>
+        <img src="images/o_banana_white.png" alt="banana">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <br/>
+        <a href="/"><button class="button">OUI, je garde<br/>la banane !</button></a>
+      </div>
+    </div>
   </div>
+
+
 </body>
 </html>
