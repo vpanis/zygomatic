@@ -75,7 +75,7 @@
     </div>
   <% end %>
   <!-- Search form -->
-   <%= form_tag( skits_path, :method => "get", id: "search-form", class: "navbar-wagon-search") do %>
+   <%= form_tag( skits_path, :method => "get", id: "search-form", class: "navbar-wagon-search", remote: true) do %>
     <%= text_field_tag :search, params[:search], placeholder: "Tapez ici pour rire !", class: "navbar-wagon-search-input" %>
     <%= button_tag(type: "submit", :name => nil, class: "navbar-wagon-search-btn") do %>
       <i class="fa fa-search"></i>

@@ -1,0 +1,21 @@
+<% if @skits.blank? %>
+  var search_skit = $("<h4>Pas de blagues :(</h4>");
+  $('#search_skit').append(search_skit);
+<% else %>
+  <% @skits.each do |skit| %>
+    var search_skit = $("<div class='col-xs-12 col-md-4'><%= j render 'pages/shared/card', skit: skit %></div>");
+    $('#search_skit').append(search_skit);
+  <% end %>
+<% end %>
+
+<% if @comedians.blank? %>
+  var search_comedian = $("<h4>Pas d'amis' :(</h4>");
+  $('#search_comedian').append(search_comedian);
+<% else %>
+  <% @comedians.each do |comedian| %>
+    var search_comedian = $("<div class='col-xs-12 col-md-4'><%= j render 'pages/shared/cardartists', comedian: comedian %></div>");
+    $('#search_comedian').append(search_comedian);
+  <% end %>
+<% end %>
+
+

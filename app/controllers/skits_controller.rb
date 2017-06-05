@@ -12,10 +12,15 @@ class SkitsController < ApplicationController
       # @playlists = []
       # @skits.each do |playlist|
       #   @playlists << skit.playlist
-      # end    
+      # end
       # @playlists.uniq!
     else
       @skits = nil
+    end
+
+    respond_to do |format|
+      format.html { redirect_to restaurants_path }
+      format.js  # <-- will render `app/views/skits/index.js.erb`
     end
   end
 
