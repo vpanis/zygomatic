@@ -1,7 +1,7 @@
 class PlaylistSkitsController < ApplicationController
 
   def create
-    @right_playlists = filtering_playlist(current_user.playlists)
+    @right_playlists = filtering_playlists(current_user.playlists)
     @playlist_names = []
     ps_params = params[:playlist_skit]["playlist_id"].select { |id| id != "" }
     ps_params.each do |playlist_id|
@@ -38,7 +38,7 @@ class PlaylistSkitsController < ApplicationController
     end
   end
 
-  def filtering_playlist(playlists)
+  def filtering_playlists(playlists)
     right_playlists = []
     playlists.each do |playlist|
       if !playlist.skits.include?(@skit)
