@@ -1,5 +1,5 @@
 <% content_for :meta_title do %>
-  Zygomatic vous présente "<%= @skit.name %>" de "<%= @skit.comedian.name %>"
+  <%= @skit.name %> - <%= @skit.comedian.name %>
 <% end %>
 <% content_for :meta_description, @skit.short_description %>
 <% content_for :meta_image, cloudinary_url(@skit.picture.path) %>
