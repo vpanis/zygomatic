@@ -28,6 +28,7 @@ class SkitsController < ApplicationController
     @recommended_skits = find_recommended_skits(6)
     @skit = Skit.find(params[:id])
     @review = Review.new
+    @playlist_skit = PlaylistSkit.new
     @skit_rating_average = rating_average(@skit)
   end
 
@@ -46,7 +47,7 @@ class SkitsController < ApplicationController
   end
 
   def skit_params
-      params.require(:skit).permit(:name, :tag_list´) ## Rails 4 strong params usage
+      params.require(:skit).permit(:name, :tag_list) ## Rails 4 strong params usage
   end
 
   def find_recommended_skits(nb_of_skits)
