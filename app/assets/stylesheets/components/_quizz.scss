@@ -1,17 +1,34 @@
-.quizzcardbox {
+.quizzcardbox-launch {
   width: 100%;
   height: 480px;
   background-color: $light-yellow;
   margin-top: 70px;
   position: relative;
   border-radius: 4px;
+    &:hover {
+      .launchquizz {
+      opacity: 1.1;
+      text-decoration: none;
+      transform: scale(1.1)
+      }
+    }
   }
 
-.quizzcardbox:hover {
-  opacity: 1;
-  text-decoration: none;
-}
-
+.quizzcardbox-finish {
+  width: 100%;
+  height: 480px;
+  background-color: $light-yellow;
+  margin-top: 70px;
+  position: relative;
+  border-radius: 4px;
+    &:hover {
+      .quizz-badge {
+      text-decoration: none;
+      transform: scale(1.2);
+      transition-duration: 0.25s;
+      }
+    }
+  }
 
 .launchquizz {
   border-radius: 10px;
@@ -31,7 +48,6 @@
   text-decoration: none;
   color: $brand-yellow;
   font-size: 30px;
-  padding: 20px 20px;
     b, p {
       font-family: $header-font;
     }
@@ -40,11 +56,6 @@
       font-size: 20px;
       text-decoration: none!important;
     }
-    &:hover {
-      opacity: 1;
-      text-decoration: none;
-      transform: scale(1.1)
-    }
   }
 
 .launchquizz-image {
@@ -52,3 +63,24 @@
   width: 60%;
   border-radius: 10px;
  }
+
+.quizz-badge {
+  margin-top: 30px;
+}
+
+
+.quizz-results {
+  position: absolute;
+  margin-top: 15px;
+  padding: 15px;
+  padding-bottom: 1.5em;
+  font-family : $my-font;
+  font-size: 25px;
+  background-color: $light-grey;
+  width: 90%;
+  left: 5%;
+  border-radius: 8px;
+  box-shadow: #bdc3c7 0 5px 5px;
+}
+
+
