@@ -73,7 +73,7 @@ csv_playlists_skits = File.read(Rails.root.join('lib', 'seeds', 'playlists_skits
 csv = CSV.parse(csv_playlists_skits, :headers => true, col_sep: ';')
 puts csv_playlists_skits
 csv.each do |row|
-  PlaylistSkit.create(skit_id: row[0], playlist_id: row[1])
+  PlaylistSkit.create(skit_id: row[0], playlist_id: row[1], skit_position: row[0])
 end
 
 

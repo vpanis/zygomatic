@@ -54,10 +54,10 @@ class SkitsController < ApplicationController
   def find_next_skits(nb_of_skits)
     next_skits = RecommendedSkitsService.find(skit: @skit, user: current_user, nb_of_skits: nb_of_skits)
 
-    if current_playlist = current_user.current_playlist
-      all_skits_from_current_playlist = current_playlist.skits.to_a
+    if current_user && (current_playlist = current_user.current_playlist)
+      all_skits_from_current_playlist = current_playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
       if index_skit = all_skits_from_current_playlist.index(@skit)
-        next_skits = all_skits_from_current_playlist[(index_skit+1)..(index_skit+1+nb_of_skits)]
+        next_skits = all_skits_from_current_playlist.rotate(index_skit+1)[0..(nb_of_skits-1)]
       end
     end
 

@@ -3,11 +3,10 @@ class PlaylistsController < ApplicationController
   before_action :set_launch, only: [ :launch ]
 
   def index
-
   end
 
   def show
-
+    @skits = @playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
   end
   def create
 
