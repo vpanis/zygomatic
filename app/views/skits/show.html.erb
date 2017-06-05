@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  <%= @skit.comedian.name %> - <%= @skit.name %>
+<% end %>
+
 <div class="showpage">
   <div class="container-fluid">
     <div class="row">
