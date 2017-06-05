@@ -1,3 +1,9 @@
+<% content_for :meta_title do %>
+  <%= @skit.name %> - <%= @skit.comedian.name %>
+<% end %>
+<% content_for :meta_description, @skit.short_description %>
+<% content_for :meta_image, cloudinary_url(@skit.picture.path) %>
+
 <div class="showpage">
   <div class="container-fluid">
     <div class="row">
