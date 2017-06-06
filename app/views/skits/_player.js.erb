@@ -1,6 +1,29 @@
-    // 1. check whether you are in search mode or in video mode
+    // 1. check whether you are in scroll mode or in search or playlist mode
     // by default: video mode
-    var in_search_mode = false;
+    var in_scroll_mode = true;
+
+
+    // back to regular skit view when title of miniplayer is clicked
+    $('#minihead').on('click', function(event) {
+      in_scroll_mode = true;
+
+      // show the quizz and the playing skit
+      $('#playing-skit').show();
+      $('#quizz').show();
+
+      // hide the miniplayer
+      $('#miniature-player').hide();
+      $('#minipanel').hide();
+
+      // hide the playlist
+      $('#playlist-in-skit-show').hide();
+
+      // hide the search
+      $('#search-in-skit-show').hide();
+
+      // go to top of page
+      $('html,body').scrollTop(0);
+    });
 
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -46,6 +69,7 @@
     $('#miniature-player').hide();
     $('#minipanel').hide();
     $('#search-in-skit-show').hide();
+    $('#playlist-in-skit-show').hide();
 
     // 4. The API will call this function when the video player is ready.
     function onLargePlayerReady(event) {
@@ -118,13 +142,13 @@
         var y_scroll_pos = window.pageYOffset;
         var scroll_pos_test = - navbar_height + large_player_top_position + large_player_height - large_player_offset_height;
 
-        if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible && !in_search_mode) {
+        if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible && in_scroll_mode) {
           miniature_player_visible = true;
           $('#miniature-player').fadeIn();
           $('#minipanel').fadeIn();
           console.log('you have below the bottom of large player');
         }
-        if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && !in_search_mode) {
+        if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && in_scroll_mode) {
           miniature_player_visible = false;
           $('#miniature-player').fadeOut();
           $('#minipanel').fadeOut();

@@ -18,6 +18,7 @@ class SkitsController < ApplicationController
       @skits = nil
     end
 
+
     respond_to do |format|
       format.html { render 'skits/index' }
       format.js  # <-- will render `app/views/skits/index.js.erb`

@@ -58,7 +58,11 @@
         <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
           <% current_user.playlists.each do |playlist| %>
             <li>
-              <b><%= link_to playlist.name, playlist_path(playlist) %></b>
+              <% if current_page?(root_path) || current_page?(skits_path) %>
+                <b><%= link_to playlist.name, playlist_path(playlist) %></b>
+              <% else %>
+                <b><%= link_to playlist.name, playlist_path(playlist), remote: true %></b>
+              <% end %>
             </li>
           <% end %>
         </ul>
