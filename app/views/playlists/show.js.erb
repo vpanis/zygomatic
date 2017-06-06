@@ -21,13 +21,14 @@ $('#playlist-in-skit-show').show();
 // go to top of page
 $('html,body').scrollTop(0);
 
-$('#playlist-title').text("\"<%= @playlist.name %>\"");
+$('.playlist-info').attr('id', '<%= @playlist.id %>');
+$('.playlist-info').text("<%= @playlist.name %>");
 <% if @playlist_skits.blank? %>
   var current_playlist_skit = $("<h4>Pas de blagues :(</h4>");
   $('#sortable').append(current_playlist_skit);
 <% else %>
   <% @playlist_skits.each do |skit| %>
-    var current_playlist_skit = $("<li class='ui-state-default'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
+    var current_playlist_skit = $("<li id='<%= skit.id %>' class='ui-state-default'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
     $('#sortable').append(current_playlist_skit);
   <% end %>
 <% end %>

@@ -16,7 +16,11 @@ class PlaylistsController < ApplicationController
 
   end
   def update
-
+    skit_ids = playlist_params['skit_ids']
+    skit_ids.each_with_index do |skit_id, index|
+      playlist_skit = @playlist.playlist_skits.where(skit: skit_id).first
+      playlist_skit.update(skit_position: index + 1)
+    end
   end
 
   def destroy
@@ -37,6 +41,10 @@ class PlaylistsController < ApplicationController
   def set_launch
     @playlist = Playlist.find(params[:playlist_id])
     @skit = Skit.find(params[:id])
+  end
+
+  def playlist_params
+    params.permit(:id, skit_ids: [])
   end
 
 end
