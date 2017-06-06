@@ -6,6 +6,8 @@
         <b> Lancer la playlist <span id="playlist-title"></span></b>
       </div>
 
+      <div class="playlist-info"></div>
+
 
       <ul id="sortable">
         <!-- fake li to make jquery work -->
@@ -21,14 +23,42 @@
   <%= javascript_tag do %>
     $(document).ready(function() {
       $("#sortable").sortable({
+        <!-- when update of the list -->
         update: function( event, ui ) {
           var arrayOfSkits = $('#sortable li');
-          for (var i = 0; i < arrayOfSkits ; i++) {
-            console.log($(arrayOfSkits[i]).attr('id'));
-          }
+          var arrayOfSkitIds = [];
+          <!-- retrieve skit_ids in the new order -->
+          for (var i = 0; i < arrayOfSkits.length ; i++) {
+            var currentId = $(arrayOfSkits[i]).attr('id');
+            if (currentId !== 'pub') {
+              <!-- exclude the commercial -->
+              arrayOfSkitIds.push(parseInt(currentId));
+            }
+          };
+
+          <!-- retrieve the playlist id -->
+          var playlistId = $('.playlist-info').attr('id');
+          console.log(playlistId);
+          var playlistName = $('.playlist-info').text();
+          console.log(playlistName);
+
+          <!-- send ajax request to playlist#update -->
+          var updatedPlaylist = JSON.stringify({
+            'skit_ids': arrayOfSkitIds
+          });
+          $.ajax({
+            type: "PATCH",
+            url: "http://localhost:3000/playlists/" + playlistId,
+            dataType: 'json',
+            contentType: 'application/json',
+            data: updatedPlaylist,
+            success: function(data) {
+              console.log("Successfully updated playlist" + playlistName);
+            }
+          });
         }
       });
       $( "#sortable" ).disableSelection();
     });
   <% end %>
- <% end %>
+<% end %>
