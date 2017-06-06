@@ -1,11 +1,11 @@
-<%= simple_form_for([skit, playlist_skit]) do |f| %>
+<%= simple_form_for([skit, playlist_skit], remote: true) do |f| %>
   <div class="modal-body">
     <%= f.error_notification %>
 
     <div class="form-group">
       <input type="hidden" name="playlist_skit[playlist_id][]" value="">
       <div class="playlist-choices text-center">
-        <% current_user.playlists.each do |playlist| %>
+        <% @right_playlists.each do |playlist| %>
           <input class="hidden" type="checkbox" value="<%= playlist.id %>" name="playlist_skit[playlist_id][]" id="playlist_skit_playlist_id_<%= playlist.id %>">
           <label class="playlist-choice" for="playlist_skit_playlist_id_<%= playlist.id %>">
             <%= playlist.name %>

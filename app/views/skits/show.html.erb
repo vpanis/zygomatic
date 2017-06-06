@@ -19,9 +19,11 @@
           <!--  RECOMMENDATIONS -->
           <!--  REVIEWS -->
 
+
           <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit %>
           <%= render 'search_skits' %>
           <%= render 'playlist_in_parallel' %>
+
 
         </div>
       </div>
@@ -29,15 +31,7 @@
       <!-- RIGHT PANEL -->
       <div class="col-xs-4">
         <!-- QUIZZ CARD -->
-        <div class="quizzcard padded text-center">
-          <div class="row">
-            <div class="col-xs-12">
-              <h2 style="font-size: 50px;">QUIZZ<br/>
-              (EN DÉVELOPPEMENT)<br/><br/>LET'S PLAY !</h2>
-              <%= image_tag "o.png", width: "100px" %>
-            </div>
-          </div>
-        </div>
+        <%= render 'shared/quizz_question' %>
         <!-- FLOATING MINIATURE VIDEO PLAYER & INFOS -->
         <div class="right-content">
           <div id="minipanel">

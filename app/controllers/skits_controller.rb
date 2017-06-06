@@ -32,6 +32,9 @@ class SkitsController < ApplicationController
     @review = Review.new
     @playlist_skit = PlaylistSkit.new
     @skit_rating_average = rating_average(@skit)
+    if current_user
+    @right_playlists = filtering_playlists(current_user.playlists)
+    end
   end
 
   def rating_average(skit)
@@ -69,4 +72,13 @@ class SkitsController < ApplicationController
     RecommendedSkitsService.find(skit: @skit, user: current_user, nb_of_skits: nb_of_skits)
   end
 
+  def filtering_playlists(playlists)
+    right_playlists = []
+    playlists.each do |playlist|
+      if !playlist.skits.include?(@skit)
+      right_playlists << playlist
+      end
+    end
+    return right_playlists
+  end
 end
