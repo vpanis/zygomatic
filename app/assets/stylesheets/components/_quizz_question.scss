@@ -1,6 +1,7 @@
 .quizzcard {
 	background-color: #FFCD38;
 	margin-top: 70px;
+	border-radius: 4px;
 	height: 480px;
 	display: flex;
 	flex-direction: column;
@@ -37,17 +38,26 @@
 		margin-bottom: -10px;
 		display: flex;
 		justify-content: space-around;
-		align-items: center;
+		// align-items: center;
 		.answer {
 			background-color: #469AE0;
 			flex: 0 0 30%;
-			align-items: baseline;
+			display: flex;
 			text-decoration: none;
 			border-radius: 4px;
-			height: 130px;
+			padding: 5px;
+			padding-left: 5px;
+			padding-right: 5px;
+			height: 135px;
+			align-items: center;
+			a {
+				align-items: center;
+				justify-content: center;
+			}
 		}
 	}
 	.answer:hover {
+		cursor: pointer;
 		text-decoration: none;
 		opacity: 0.9;
 		color: white;

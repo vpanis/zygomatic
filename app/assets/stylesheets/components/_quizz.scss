@@ -14,7 +14,8 @@
       .launchquizz {
       opacity: 1.1;
       text-decoration: none;
-      transform: scale(1.1)
+      transform: scale(1.1);
+      cursor: pointer;
       }
     }
   }
@@ -87,4 +88,6 @@
   box-shadow: #bdc3c7 0 5px 5px;
 }
 
-
+.bravo {
+  border: solid 3px green;
+}
