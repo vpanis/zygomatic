@@ -273,6 +273,9 @@
   li {
     margin-left: 14px;
   }
+  a{
+    color: $dark-grey;
+  }
 }
 
 #parcourir {
@@ -280,8 +283,5 @@
   border-color: $brand-yellow;
   border-top: 4px solid $brand-yellow;
   left: 17px;
-  a{
-    color: $dark-grey;
-  }
 
 }
