@@ -1,19 +1,45 @@
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="carousel slide multi-item-carousel" id="theCarousel">
-        <div class="carousel-inner">
-          <% @recommended_skits.each_with_index do |skit, i| %>
-            <div class="item <%= i.zero? ? 'active' : '' %>">
-              <div class="col-xs-4"><%= render 'pages/shared/card', skit: skit %></div>
-            </div>
-          <% end %>
+  <div class="head-title-box">
+    <h2>Les sketches les plus mieux du moment :</h2>
+    <div class="highlight"></div>
+  </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="carousel slide multi-item-carousel" id="theCarousel">
+          <div class="carousel-inner">
+            <% @recommended_skits.each_with_index do |skit, i| %>
+              <div class="item <%= i.zero? ? 'active' : '' %>">
+                <div class="col-xs-4"><%= render 'pages/shared/card', skit: skit %></div>
+              </div>
+            <% end %>
+          </div>
+          <a class="left carousel-control left-control-override" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left left-control-override"></i></a>
+          <a class="right carousel-control right-control-override" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
-        <a class="left carousel-control left-control-override" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left left-control-override"></i></a>
-        <a class="right carousel-control right-control-override" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
       </div>
     </div>
+
+  <div class="head-title-box">
+    <h2>Les sketches les plus mieux du moment :</h2>
+    <div class="highlight"></div>
   </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="carousel slide multi-item-carousel" id="theCarousel2">
+          <div class="carousel-inner">
+            <% Skit.all.each_with_index do |skit, i| %>
+              <div class="item <%= i.zero? ? 'active' : '' %>">
+                <div class="col-xs-4"><%= render 'pages/shared/card', skit: skit %></div>
+              </div>
+            <% end %>
+          </div>
+          <a class="left carousel-control left-control-override" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left left-control-override"></i></a>
+          <a class="right carousel-control right-control-override" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+
 </div>
 
 <!-- content_for(:after_js) do %>
