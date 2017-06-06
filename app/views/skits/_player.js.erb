@@ -2,6 +2,29 @@
     // by default: video mode
     var in_scroll_mode = true;
 
+
+    // back to regular skit view when title of miniplayer is clicked
+    $('#minihead').on('click', function(event) {
+      in_scroll_mode = true;
+
+      // show the quizz and the playing skit
+      $('#playing-skit').show();
+      $('#quizz').show();
+
+      // hide the miniplayer
+      $('#miniature-player').hide();
+      $('#minipanel').hide();
+
+      // hide the playlist
+      $('#playlist-in-skit-show').hide();
+
+      // hide the search
+      $('#search-in-skit-show').hide();
+
+      // go to top of page
+      $('html,body').scrollTop(0);
+    });
+
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
