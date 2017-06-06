@@ -20,10 +20,9 @@
           <!--  REVIEWS -->
 
 
-          <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit %>
+          <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit, right_playlists: @right_playlists %>
           <%= render 'search_skits' %>
           <%= render 'playlist_in_parallel' %>
-
 
         </div>
       </div>
@@ -31,7 +30,9 @@
       <!-- RIGHT PANEL -->
       <div class="col-xs-4">
         <!-- QUIZZ CARD -->
-        <%= render 'shared/quizz_question' %>
+        <div id="quizz">
+          <%= render 'shared/quizz_question' %>
+        </div>
         <!-- FLOATING MINIATURE VIDEO PLAYER & INFOS -->
         <div class="right-content">
           <div id="minipanel">
