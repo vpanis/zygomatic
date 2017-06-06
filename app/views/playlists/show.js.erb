@@ -27,7 +27,7 @@ $('#playlist-title').text("\"<%= @playlist.name %>\"");
   $('#sortable').append(current_playlist_skit);
 <% else %>
   <% @playlist_skits.each do |skit| %>
-    var current_playlist_skit = $("<li class='ui-state-default'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
+    var current_playlist_skit = $("<li id='<%= skit.id %>' class='ui-state-default'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
     $('#sortable').append(current_playlist_skit);
   <% end %>
 <% end %>

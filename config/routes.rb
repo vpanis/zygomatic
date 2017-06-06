@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :playlist_skits, only: [ :create ]
   end
   resources :users, only: [ :show, :edit, :update ]
-  resources :playlists, only: [ :index, :show, :create, :update, :destroy ]
+  resources :playlists, only: [ :index, :show, :create, :destroy ]
+  patch '/playlists/:id', to: 'playlists#update', as: 'playlist_update'
   get '/playlists/:playlist_id/skits/:id', to: 'playlists#launch', as: 'launch'
   resources :playlist_skits, only: [ :create, :update, :destroy ]
   resources :artists, only: :show

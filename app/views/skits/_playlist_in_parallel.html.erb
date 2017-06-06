@@ -17,11 +17,18 @@
   </div>
 </div>
 
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).ready(function() {
-        $( "#sortable" ).sortable();
-        $( "#sortable" ).disableSelection();
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $("#sortable").sortable({
+        update: function( event, ui ) {
+          var arrayOfSkits = $('#sortable li');
+          for (var i = 0; i < arrayOfSkits ; i++) {
+            console.log($(arrayOfSkits[i]).attr('id'));
+          }
+        }
       });
-    <% end %>
-   <% end %>
+      $( "#sortable" ).disableSelection();
+    });
+  <% end %>
+ <% end %>
