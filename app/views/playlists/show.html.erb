@@ -1,27 +1,30 @@
 <div class="banner-playlist"></div>
 
-<div class="container text-center">
-<br>
-  <div class=" text-center playlist-global-btn btn">
-    <i class="fa fa-play-circle" aria-hidden="true" style='color: white; font-size: 40px'></i>
-    <b> Lancer la playlist "<%= @playlist.name %>" !</b>
-  </div>
-</div>
-<br>
+<div class="container-fluid text-center">
 
-<div class="container">
-  <ul id="sortable">
-    <% @skits.each do |skit| %>
-      <li class="ui-state-default" style="list-style-type: none">
-        <div class=row>
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-            <%= render 'pages/shared/playlist_skit_card', skit: skit %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+  <div class="row">
+    <div class="col-xs-8">
+      <div class=" text-center playlist-global-btn btn">
+        <i class="fa fa-play-circle" aria-hidden="true" style='color: white; font-size: 40px'></i>
+        <b> Lancer la playlist "<%= @playlist.name %>"!</b>
+      </div>
+
+
+      <ul id="sortable">
+          <% @skits.each do |skit| %>
+            <li class="ui-state-default" style="list-style-type: none">
+              <div class=row>
+                <div class="col-xs-12">
+                  <%= render 'pages/shared/playlist_skit_card', skit: skit %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    <div class="col-xs-4"></div>
+  </div>
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
