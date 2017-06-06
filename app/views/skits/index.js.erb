@@ -1,17 +1,22 @@
 // in search mode remove scroll effect
-var in_search_mode = true;
+var in_scroll_mode = false;
 
 // hide the quizz and the playing skit
 $('#playing-skit').hide();
-$('.quizzcard').hide();
+$('#quizz').hide();
+
+// remove the playlist
+$('#playlist-in-skit-show').hide();
+
+// show the miniplayer
+$('#miniature-player').show();
+$('#minipanel').show();
 
 // remove any elements previously searched
 $('#search_skit').empty();
 
-// show the search results and the miniplayer
+// show the search
 $('#search-in-skit-show').show();
-$('#miniature-player').show();
-$('#minipanel').show();
 
 // go to top of page
 $('html,body').scrollTop(0);

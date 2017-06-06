@@ -1,134 +1,158 @@
-    // 1. check whether you are in search mode or in video mode
-    // by default: video mode
-    var in_search_mode = false;
-
-    // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  // 1. check whether you are in scroll mode or in search or playlist mode
+  // by default: video mode
+  var in_scroll_mode = true;
 
 
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    var largePlayer;
-    var miniaturePlayer;
-    function onYouTubeIframeAPIReady() {
-      largePlayer = new YT.Player('large-player', {
-        height: '480',
-        width: '100%',
-        videoId: '<%= j @skit.youtube_path %>',
-        playerVars: {
-          'autoplay': 1,
-          'rel': 0,
-          'showinfo': 0
-        },
-        events: {
-          'onReady': onLargePlayerReady,
-          'onStateChange': onLargePlayerStateChange
-        }
-      });
-      miniaturePlayer = new YT.Player('miniature-player', {
-        height: '300px',
-        width: '100%',
-        videoId: '<%= j @skit.youtube_path %>',
-        playerVars: {
-          'autoplay': 1,
-          'rel': 0,
-          'showinfo': 0
-        },
-        events: {
-          'onReady': onMiniaturePlayerReady,
-          'onStateChange': onMiniaturePlayerStateChange
-        }
-      });
-    }
+  // back to regular skit view when title of miniplayer is clicked
+  $('#minihead').on('click', function(event) {
+    in_scroll_mode = true;
+
+    // show the quizz and the playing skit
+    $('#playing-skit').show();
+    $('#quizz').show();
+
+    // hide the miniplayer
     $('#miniature-player').hide();
     $('#minipanel').hide();
+
+    // hide the playlist
+    $('#playlist-in-skit-show').hide();
+
+    // hide the search
     $('#search-in-skit-show').hide();
 
-    // 4. The API will call this function when the video player is ready.
-    function onLargePlayerReady(event) {
-      event.target.playVideo();
-      event.target.mute(); // mute large player and have the miniature one always visible handle it
-    }
+    // go to top of page
+    $('html,body').scrollTop(0);
+  });
 
-    function onMiniaturePlayerReady(event) {
-      event.target.playVideo();
-    }
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    // 5. The API calls this function when the player's state changes.
-    function onLargePlayerStateChange(event) {
-      switch (event.data) {
-        case YT.PlayerState.ENDED:
-          console.log('large-player ENDED');
-          miniaturePlayer.stopVideo();
-          break;
-        case YT.PlayerState.PLAYING:
-          var largePlayerCurrentTime = largePlayer.getCurrentTime();
-          miniaturePlayer.seekTo(largePlayerCurrentTime, true);
-          console.log('large-player PLAYING');
-          miniaturePlayer.playVideo();
-          break;
-        case YT.PlayerState.PAUSED:
-          console.log('large-player PAUSED');
-          miniaturePlayer.pauseVideo();
-          break;
-        case YT.PlayerState.BUFFERING:
-          console.log('large-player BUFFERING');
-          break;
-        case YT.PlayerState.CUED:
-          console.log('large-player CUED');
-          break;
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var largePlayer;
+  var miniaturePlayer;
+  function onYouTubeIframeAPIReady() {
+    largePlayer = new YT.Player('large-player', {
+      height: '480',
+      width: '100%',
+      videoId: '<%= j @skit.youtube_path %>',
+      playerVars: {
+        'autoplay': 1,
+        'rel': 0,
+        'showinfo': 0
+      },
+      events: {
+        'onReady': onLargePlayerReady,
+        'onStateChange': onLargePlayerStateChange
       }
-    }
-
-    function onMiniaturePlayerStateChange(event) {
-      switch (event.data) {
-        case YT.PlayerState.ENDED:
-          console.log('miniature-player ENDED');
-          largePlayer.stopVideo();
-          break;
-        case YT.PlayerState.PLAYING:
-          console.log('miniature-player PLAYING');
-          largePlayer.playVideo();
-          break;
-        case YT.PlayerState.PAUSED:
-          console.log('miniature-player PAUSED');
-          largePlayer.pauseVideo();
-          var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
-          largePlayer.seekTo(miniaturePlayerCurrentTime, true);
-          break;
-        case YT.PlayerState.BUFFERING:
-          console.log('miniature-player BUFFERING');
-          break;
-        case YT.PlayerState.CUED:
-          console.log('miniature-player CUED');
-          break;
+    });
+    miniaturePlayer = new YT.Player('miniature-player', {
+      height: '300px',
+      width: '100%',
+      videoId: '<%= j @skit.youtube_path %>',
+      playerVars: {
+        'autoplay': 1,
+        'rel': 0,
+        'showinfo': 0
+      },
+      events: {
+        'onReady': onMiniaturePlayerReady,
+        'onStateChange': onMiniaturePlayerStateChange
       }
+    });
+  }
+  $('#miniature-player').hide();
+  $('#minipanel').hide();
+  $('#search-in-skit-show').hide();
+  $('#playlist-in-skit-show').hide();
 
-      // detection of scroll at the bottom of large-player
-      var navbar_height = 70;
-      var large_player_top_position = $('#large-player').offset().top;
-      var large_player_height = $('#large-player').height();
-      var large_player_offset_height = 70;
+  // 4. The API will call this function when the video player is ready.
+  function onLargePlayerReady(event) {
+    event.target.playVideo();
+    event.target.mute(); // mute large player and have the miniature one always visible handle it
+  }
 
-      var miniature_player_visible = true;
-      $(window).on('scroll', function() {
-        var y_scroll_pos = window.pageYOffset;
-        var scroll_pos_test = - navbar_height + large_player_top_position + large_player_height - large_player_offset_height;
+  function onMiniaturePlayerReady(event) {
+    event.target.playVideo();
+  }
 
-        if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible && !in_search_mode) {
-          miniature_player_visible = true;
-          $('#miniature-player').fadeIn();
-          $('#minipanel').fadeIn();
-          console.log('you have below the bottom of large player');
-        }
-        if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && !in_search_mode) {
-          miniature_player_visible = false;
-          $('#miniature-player').fadeOut();
-          $('#minipanel').fadeOut();
-          console.log('you have above the bottom of large player');
-        }
-      });
+  // 5. The API calls this function when the player's state changes.
+  function onLargePlayerStateChange(event) {
+    switch (event.data) {
+      case YT.PlayerState.ENDED:
+        console.log('large-player ENDED');
+        miniaturePlayer.stopVideo();
+        break;
+      case YT.PlayerState.PLAYING:
+        var largePlayerCurrentTime = largePlayer.getCurrentTime();
+        miniaturePlayer.seekTo(largePlayerCurrentTime, true);
+        console.log('large-player PLAYING');
+        miniaturePlayer.playVideo();
+        break;
+      case YT.PlayerState.PAUSED:
+        console.log('large-player PAUSED');
+        miniaturePlayer.pauseVideo();
+        break;
+      case YT.PlayerState.BUFFERING:
+        console.log('large-player BUFFERING');
+        break;
+      case YT.PlayerState.CUED:
+        console.log('large-player CUED');
+        break;
     }
+  }
+
+  function onMiniaturePlayerStateChange(event) {
+    switch (event.data) {
+      case YT.PlayerState.ENDED:
+        console.log('miniature-player ENDED');
+        largePlayer.stopVideo();
+        break;
+      case YT.PlayerState.PLAYING:
+        console.log('miniature-player PLAYING');
+        largePlayer.playVideo();
+        break;
+      case YT.PlayerState.PAUSED:
+        console.log('miniature-player PAUSED');
+        largePlayer.pauseVideo();
+        var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
+        largePlayer.seekTo(miniaturePlayerCurrentTime, true);
+        break;
+      case YT.PlayerState.BUFFERING:
+        console.log('miniature-player BUFFERING');
+        break;
+      case YT.PlayerState.CUED:
+        console.log('miniature-player CUED');
+        break;
+    }
+
+    // detection of scroll at the bottom of large-player
+    var navbar_height = 70;
+    var large_player_top_position = $('#large-player').offset().top;
+    var large_player_height = $('#large-player').height();
+    var large_player_offset_height = 70;
+
+    var miniature_player_visible = true;
+    $(window).on('scroll', function() {
+      var y_scroll_pos = window.pageYOffset;
+      var scroll_pos_test = - navbar_height + large_player_top_position + large_player_height - large_player_offset_height;
+
+      if ((y_scroll_pos > scroll_pos_test) && !miniature_player_visible && in_scroll_mode) {
+        miniature_player_visible = true;
+        $('#miniature-player').fadeIn();
+        $('#minipanel').fadeIn();
+        console.log('you have below the bottom of large player');
+      }
+      if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && in_scroll_mode) {
+        miniature_player_visible = false;
+        $('#miniature-player').fadeOut();
+        $('#minipanel').fadeOut();
+        console.log('you have above the bottom of large player');
+      }
+    });
+  }

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $(".next-card").click(function(){
   	var current_quizz = $(this).parents(".quizzbox:first");
   	var next_quizz = $(current_quizz).next(".quizzbox");
@@ -16,3 +17,4 @@ $(document).ready(function(){
 				e.stopPropagation();
    });
 });
+

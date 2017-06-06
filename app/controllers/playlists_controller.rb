@@ -6,7 +6,11 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @skits = @playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
+    @playlist_skits = @playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
+    respond_to do |format|
+      format.html { render 'show' }
+      format.js  # <-- will render `app/views/skits/index.js.erb`
+    end
   end
   def create
 
