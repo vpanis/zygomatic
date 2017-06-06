@@ -18,7 +18,7 @@
       -ms-border-radius: 8px;
       -o-border-radius: 8px;
       border-radius: 8px;
-      background-color: $light-grey;
+      background-image: url('pub.gif');
       -webkit-box-shadow: #bdc3c7 0 5px 5px;
       -moz-box-shadow: #bdc3c7 0 5px 5px;
       box-shadow: #bdc3c7 0 5px 5px;
@@ -68,7 +68,7 @@
 
     &-comedian-avatar {
       position: absolute;
-      top: 15px;
+      top: 67px;
       right: 0;
       margin: auto;
       width: 70px;
