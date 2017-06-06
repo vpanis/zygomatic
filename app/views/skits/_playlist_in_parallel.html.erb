@@ -1,0 +1,23 @@
+<div id="playlist-in-skit-show">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div id="lauch-playlist" class=" text-center playlist-global-btn btn">
+        <i class="fa fa-play-circle" aria-hidden="true"></i>
+        <b> Lancer la playlist <span id="playlist-title"></span></b>
+      </div>
+
+
+      <ul id="sortable">
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+      });
+    <% end %>
+   <% end %>
