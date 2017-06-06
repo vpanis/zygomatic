@@ -26,6 +26,7 @@ class SkitsController < ApplicationController
   end
 
   def show
+    @skits = Skit.all
     @next_skits = find_next_skits(6)
     @recommended_skits = find_recommended_skits(6)
     @skit = Skit.find(params[:id])
