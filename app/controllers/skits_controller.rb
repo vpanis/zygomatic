@@ -18,6 +18,7 @@ class SkitsController < ApplicationController
       @skits = nil
     end
 
+
     respond_to do |format|
       format.html { render 'skits/index' }
       format.js  # <-- will render `app/views/skits/index.js.erb`
@@ -31,6 +32,7 @@ class SkitsController < ApplicationController
     @review = Review.new
     @playlist_skit = PlaylistSkit.new
     @skit_rating_average = rating_average(@skit)
+    @playlist = Playlist.first
   end
 
   def rating_average(skit)
