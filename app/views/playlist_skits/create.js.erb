@@ -3,7 +3,7 @@
   $('#new_playlist_skit').html("<%= j render 'skits/addplaylist_form', skit: @skit, playlist_skit: @playlist_skit %>");
 <% else %>
   $("#modalPlaylist_" + <%= @skit.id.to_s %>).modal("hide");
-  $('#adding-me-to-playlist').html("Already added to playlists!");
+  $('#adding-me-to-playlist').html("Déjà ajouté à ta playlist!");
   // Reset the form
   $('#new_playlist_skit').html("<%= j render 'skits/addplaylist_form', skit: @skit, playlist_skit: PlaylistSkit.new %>");
 <% end %>
