@@ -113,10 +113,3 @@
 <!-- end A DRYER -->
 <%= render 'modal_add_to_playlist', right_playlists: @right_playlists, skit: @skit, playlist_skit: @playlist_skit %>
 
-
-<!-- script pour player youtube -->
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    <%= render 'player.js' %>
-  <% end %>
-<% end %>
