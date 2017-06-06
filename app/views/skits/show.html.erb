@@ -69,12 +69,30 @@
                       <div class="rate">
                         <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
                           <ul class="list-inline">
-                            <li><i class="fa fa-smile-o"></i></li>
-                            <li><h4>Evaluez-moi !</h4></li>
+                            <li><i class="fa fa-smile-o" id="faleft"></i></li>
                           </ul>
                         <% end %>
                       </div>
-                      <!-- end -->
+                    </li>
+                    <!-- Add to playlist -->
+                    <li>
+                      <div class="add_to_playlist">
+                        <%= link_to "#modalPlaylist_" + @skit.id.to_s, data: {toggle: "modal"} do %>
+                          <ul class="list-inline">
+                            <li><i class="fa fa-plus-circle" id="faleft" aria-hidden="true"></i></li>
+                          </ul>
+                        <% end %>
+                      </div>
+                    </li>
+                    <!-- share skit -->
+                    <li>
+                      <div class="share">
+                        <%= link_to "#" do %>
+                          <ul class="list-inline">
+                            <li><i class="fa fa-share" id="faleft" aria-hidden="true"></i></li>
+                          </ul>
+                        <% end %>
+                      </div>
                     </li>
                   </div>
                 </ul>
