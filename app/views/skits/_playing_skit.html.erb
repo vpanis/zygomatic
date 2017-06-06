@@ -111,3 +111,10 @@
     </div>
   </div>
 </div>
+
+<!-- script pour player youtube -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    <%= render 'player.js' %>
+  <% end %>
+<% end %>
