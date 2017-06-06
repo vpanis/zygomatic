@@ -38,17 +38,16 @@
 
           <!-- retrieve the playlist id -->
           var playlistId = $('.playlist-info').attr('id');
-          console.log(playlistId);
           var playlistName = $('.playlist-info').text();
-          console.log(playlistName);
 
+          console.log("<%= root_url %>");
           <!-- send ajax request to playlist#update -->
           var updatedPlaylist = JSON.stringify({
             'skit_ids': arrayOfSkitIds
           });
           $.ajax({
             type: "PATCH",
-            url: "http://localhost:3000/playlists/" + playlistId,
+            url: "<%= root_url %>" + "playlists/" + playlistId,
             dataType: 'json',
             contentType: 'application/json',
             data: updatedPlaylist,
