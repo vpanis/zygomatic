@@ -10,18 +10,20 @@
       <div class="col-xs-8">
         <div class="left-content">
           <!-- DISPLAY SHOW OF SKIT -->
-          <!--  LARGE PLAYER -->
-          <!--  SUBVIDEO INFOS -->
-          <!--  MODAL FOR REVIEW -->
-          <!-- MODAL FOR ADDING PLAYLIST -->
-          <!-- SHARE -->
-          <!--  NEXT SKIT OF PLAYLIST -->
-          <!--  RECOMMENDATIONS -->
-          <!--  REVIEWS -->
+            <!--  LARGE PLAYER -->
+            <!--  SUBVIDEO INFOS -->
+            <!--  MODAL FOR REVIEW -->
+            <!-- MODAL FOR ADDING PLAYLIST -->
+            <!-- SHARE -->
+            <!--  NEXT SKIT OF PLAYLIST -->
+            <!--  RECOMMENDATIONS -->
+            <!--  REVIEWS -->
+          <%= render 'playing_skit', skit: @skit, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit %>
 
-
-          <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit, right_playlists: @right_playlists %>
+          <!-- SEARCH SKITS -->
           <%= render 'search_skits' %>
+
+          <!-- PLAYLIST -->
           <%= render 'playlist_in_parallel' %>
 
         </div>
@@ -86,36 +88,12 @@
 </div>
 
 <!-- modal for review -->
-<% if !user_signed_in? %>
-  <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title text-center" id="myModalLabel">Merci de vous logger pour noter et laisser un commentaire !</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div class="modal fade" id="modalReview_<%= @skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Review this skit performed by <%= @skit.comedian.name %></h4>
-        </div>
-        <%= render "review_form", skit: @skit, review: @review %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'modal_add_review', skit: @skit, review: @review %>
 
-
-
-
-
-
+<!-- modal for adding to playlist -->
+<!-- A DRYER -->
+<!-- end A DRYER -->
+<%= render 'modal_add_to_playlist', right_playlists: @right_playlists, skit: @skit, playlist_skit: @playlist_skit %>
 
 
 <!-- script pour player youtube -->

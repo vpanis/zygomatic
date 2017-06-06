@@ -44,45 +44,6 @@
                 </ul>
               <% end %>
             </div>
-            <!-- modal for adding to playlist -->
-            <!-- A DRYER -->
-            <!-- end A DRYER -->
-            <% if !user_signed_in? %>
-              <div class="modal fade" id="modalPlaylist_<%= skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLa">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title text-center" id="myModalLabel">Merci de vous logger pour ajouter ce sketch à une de vos playlists !</h4>
-                    </div>
-            <% else %>
-              <% if right_playlists.blank? %>
-                <div class="modal fade" id="modalPlaylist_<%= skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLa">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title text-center" id="myModalLabel">Ce sketch est déjà dans toutes vos playlists !</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% elsif %>
-                <div class="modal fade" id="modalPlaylist_<%= skit.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add this skit performed by <%= skit.comedian.name %> to one of your playlist</h4>
-                      </div>
-                      <%= render "addplaylist_form", skit: skit, playlist_skit: playlist_skit %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-            <!-- end -->
-
           </li>
           <!-- Share -->
           <li>
