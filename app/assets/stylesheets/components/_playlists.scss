@@ -176,3 +176,23 @@
  transform: translateX(-100%);
  }
 }
+
+#lauch-playlist {
+  font-size: 40px !important;
+  color: $dark-grey !important;
+
+  .fa {
+    font-size: 40px !important;
+  }
+
+  &:hover {
+    color: white !important;
+
+    .fa {
+      color: white !important;
+      font-size: 40px !important;
+    }
+  }
+
+
+}
