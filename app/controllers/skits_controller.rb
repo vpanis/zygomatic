@@ -32,7 +32,6 @@ class SkitsController < ApplicationController
     @review = Review.new
     @playlist_skit = PlaylistSkit.new
     @skit_rating_average = rating_average(@skit)
-    @playlist = Playlist.first
   end
 
   def rating_average(skit)

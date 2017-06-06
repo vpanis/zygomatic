@@ -1,33 +1,10 @@
-<div class="banner-playlist"></div>
-
-<div class="container text-center">
-<br>
-  <div class=" text-center playlist-global-btn btn">
-    <i class="fa fa-play-circle" aria-hidden="true" style='color: white; font-size: 40px'></i>
-    <b> Lancer la playlist "<%= @playlist.name %>" !</b>
+<div id="playlist-in-skit-show">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="head-title-box">
+        <h2 id="playlist-title"></h2>
+        <div class="highlight"></div>
+      </div>
+      <div id="playlist_skits"></div>
+    </div>
   </div>
-</div>
-<br>
-
-<div class="container">
-  <ul id="sortable">
-    <% @playlist.skits.each do |skit| %>
-      <li class="ui-state-default" style="list-style-type: none">
-        <div class=row>
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-            <%= render 'pages/shared/playlist_skit_card', skit: skit %>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      $( "#sortable" ).sortable();
-      $( "#sortable" ).disableSelection();
-    });
-  <% end %>
- <% end %>

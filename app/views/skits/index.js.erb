@@ -1,9 +1,12 @@
 // in search mode remove scroll effect
-var in_search_mode = true;
+var in_scroll_mode = false;
 
 // hide the quizz and the playing skit
 $('#playing-skit').hide();
 $('.quizzcard').hide();
+
+// remove the playlist
+$('#playlist_skit').hide();
 
 // remove any elements previously searched
 $('#search_skit').empty();
