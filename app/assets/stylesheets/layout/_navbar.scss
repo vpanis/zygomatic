@@ -265,3 +265,23 @@
     margin-top: -19px;
     margin-left: 137px;
 }
+
+#zyzygodropdown {
+  margin-top: -4px;
+  border-color: $brand-yellow;
+  border-top: 4px solid $brand-yellow;
+  li {
+    margin-left: 14px;
+  }
+}
+
+#parcourir {
+  margin-top: -4px;
+  border-color: $brand-yellow;
+  border-top: 4px solid $brand-yellow;
+  left: 17px;
+  a{
+    color: $dark-grey;
+  }
+
+}
