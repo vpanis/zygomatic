@@ -10,18 +10,20 @@
       <div class="col-xs-8">
         <div class="left-content">
           <!-- DISPLAY SHOW OF SKIT -->
-          <!--  LARGE PLAYER -->
-          <!--  SUBVIDEO INFOS -->
-          <!--  MODAL FOR REVIEW -->
-          <!-- MODAL FOR ADDING PLAYLIST -->
-          <!-- SHARE -->
-          <!--  NEXT SKIT OF PLAYLIST -->
-          <!--  RECOMMENDATIONS -->
-          <!--  REVIEWS -->
+            <!--  LARGE PLAYER -->
+            <!--  SUBVIDEO INFOS -->
+            <!--  MODAL FOR REVIEW -->
+            <!-- MODAL FOR ADDING PLAYLIST -->
+            <!-- SHARE -->
+            <!--  NEXT SKIT OF PLAYLIST -->
+            <!--  RECOMMENDATIONS -->
+            <!--  REVIEWS -->
+          <%= render 'playing_skit', skit: @skit, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit %>
 
-
-          <%= render 'playing_skit', skit: @skit, review: @review, next_skits: @next_skits, recommended_skits: @recommended_skits, skit_rating_average: @skit_rating_average, playlist_skit: @playlist_skit, right_playlists: @right_playlists %>
+          <!-- SEARCH SKITS -->
           <%= render 'search_skits' %>
+
+          <!-- PLAYLIST -->
           <%= render 'playlist_in_parallel' %>
 
         </div>
@@ -67,28 +69,12 @@
                       <div class="rate">
                         <%= link_to "#modalReview_" + @skit.id.to_s, data: {toggle: "modal"} do %>
                           <ul class="list-inline">
-                            <li><i class="fa fa-smile-o" id="faleft"></i></li>
+                            <li><i class="fa fa-smile-o"></i></li>
+                            <li><h4>Evaluez-moi !</h4></li>
                           </ul>
                         <% end %>
                       </div>
-                    </li>
-                    <li>
-                      <div class="add_to_playlist">
-                        <%= link_to "#modalPlaylist_" + @skit.id.to_s, data: {toggle: "modal"} do %>
-                          <ul class="list-inline">
-                            <li><i class="fa fa-plus-circle" id="faleft" aria-hidden="true"></i></li>
-                          </ul>
-                        <% end %>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="share">
-                        <%= link_to "#" do %>
-                          <ul class="list-inline">
-                            <li><i class="fa fa-share" id="faleft" aria-hidden="true"></i></li>
-                          </ul>
-                        <% end %>
-                      </div>
+                      <!-- end -->
                     </li>
                   </div>
                 </ul>
@@ -101,12 +87,13 @@
   </div>
 </div>
 
+<!-- modal for review -->
+<%= render 'modal_add_review', skit: @skit, review: @review %>
 
-
-
-
-
-
+<!-- modal for adding to playlist -->
+<!-- A DRYER -->
+<!-- end A DRYER -->
+<%= render 'modal_add_to_playlist', right_playlists: @right_playlists, skit: @skit, playlist_skit: @playlist_skit %>
 
 
 <!-- script pour player youtube -->
