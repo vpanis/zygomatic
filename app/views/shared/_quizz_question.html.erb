@@ -1,15 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script>
-$(document).ready(function(){
-  $("#bouton").click(function(){
-      $("#quizzcardbox-launch").hide();
-      $("#quizzcard1").show();
-  });
-});
-</script>
-
-<div class="quizzcardbox-launch text-center">
+<div class="quizzcardbox-launch quizzbox text-center">
   <div class="row">
     <div class="col-xs-12">
       <br>
@@ -21,11 +10,9 @@ $(document).ready(function(){
         <div class="launchquizz" id="quizzlauncher">
           <div>
             <br>
-            <button id="bouton">
             <i class="fa fa-power-off" aria-hidden="true" style='font-size: 35px'></i>
             <br>
             <b>C'est parti mon kiki !</b>
-            </button>
           </div><!-- comedian.short_description -->
         </div>
       </div>
@@ -34,8 +21,7 @@ $(document).ready(function(){
   </div>
 </div>
 
-
-<div class="quizzcard quizzcard1 hidden">
+<div class="quizzcard quizzcard1 quizzbox">
   <div class="row">
     <div class="col-xs-12">
       <div class="card-top">
@@ -46,20 +32,20 @@ $(document).ready(function(){
       </div>
       <div class="card-bottom">
         <div class="answer text-center">
-          <h3><%= link_to "L'Empire contre attaque" %></h3>
+          <h3>L'Empire contre attaque</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "L'empire paye sa bière" %></h3>
+          <h3>L'empire paye sa bière</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "L'empire dérape" %></h3>
+          <h3>L'empire dérape</h3>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="quizzcard quizzcard2 hidden">
+<div class="quizzcard quizzcard2 quizzbox">
   <div class="row">
     <div class="col-xs-12">
       <div class="card-top">
@@ -70,20 +56,20 @@ $(document).ready(function(){
       </div>
       <div class="card-bottom">
         <div class="answer text-center">
-          <h3><%= link_to "La mère Michelle" %></h3>
+          <h3>"La mère Michelle"</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "Jules César" %></h3>
+          <h3>"Jules César"</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "On" %></h3>
+          <h3>"On"</h3>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="quizzcard quizzcard3 hidden">
+<div class="quizzcard quizzcard3 quizzbox">
   <div class="row">
     <div class="col-xs-12">
       <div class="card-top">
@@ -94,20 +80,20 @@ $(document).ready(function(){
       </div>
       <div class="card-bottom">
         <div class="answer text-center">
-          <h3><%= link_to "        Artimuses !" %></h3>
+          <h3>        Artimuses !</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "        Arquemuses !" %></h3>
+          <h3>        Arquemuses !</h3>
         </div>
         <div class="answer text-center">
-          <h3><%= link_to "        Ourtabuses !" %></h3>
+          <h3>        Ourtabuses !</h3>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="quizzcardbox-finish text-center hidden">
+<div class="quizzcardbox-finish text-center quizzbox">
   <div class="row">
     <div class="col-xs-12">
       <div class="quizz-badge">
@@ -120,9 +106,8 @@ $(document).ready(function(){
         <%= image_tag "http://res.cloudinary.com/dkunigdwx/image/upload/v1496679400/stars.png", width: "70px"%>
         </h2>
         <h2><b>Tu obtiens 3/3 !</b></h2>
-          <b>Tu remportes le badge "Humour Gaulois" !
-          <br>
-          A demain pour le prochain Quizz of the jour !</b>
+          <h4><b>Tu remportes le badge "Humour Gaulois" !</b></h5>
+          <h4><b>A demain pour le prochain Quizz of the jour !</b></h4>
       </div>
     </div>
   </div>

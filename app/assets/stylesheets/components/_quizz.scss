@@ -1,4 +1,9 @@
+.quizzbox {
+  display: none;
+}
+
 .quizzcardbox-launch {
+  display: block;
   width: 100%;
   height: 480px;
   background-color: $light-yellow;
