@@ -70,7 +70,7 @@ class SkitsController < ApplicationController
     if current_user && (current_playlist = current_user.current_playlist)
       all_skits_from_current_playlist = current_playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
       if index_skit = all_skits_from_current_playlist.index(@skit)
-        next_skits = all_skits_from_current_playlist.rotate(index_skit+1)[0..(nb_of_skits-1)]
+        next_skits = all_skits_from_current_playlist.rotate(index_skit+1)
       end
     end
 
