@@ -105,3 +105,15 @@
   -webkit-transform: translate3d(125px, 0, 0);
           transform: translate3d(125px, 0, 0);
 }
+
+#acheleft {
+  .glyphicon-chevron-left:before {
+    margin-left: -108px;
+  }
+}
+
+#acheright {
+  .glyphicon-chevron-right:before {
+    margin-left: 21px;
+  }
+}
