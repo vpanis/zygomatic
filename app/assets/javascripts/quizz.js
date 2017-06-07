@@ -11,6 +11,21 @@ $(document).ready(function(){
     });
 });
 
+
+$(document).ready(function(){
+  $(".update_pill").click(function(){
+        $(".pile1").hide();
+        $(".pile2").show();
+      });
+});
+
+$(document).ready(function(){
+  $(".update_score").click(function(){
+        $(".message1").hide(200);
+        $(".message2").show(200);
+      });
+});
+
 $(document).ready(function(){ 
   $(".bad-answer").click(function(){
         $(this).parents(".quizzbox:first").effect("shake");
