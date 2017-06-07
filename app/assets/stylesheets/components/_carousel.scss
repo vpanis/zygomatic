@@ -44,5 +44,18 @@
 
 .glyphicon {
   color: $brand-yellow!important;
-  font-size: 70px!important;
+  font-size: 55px!important;
 }
+
+#chechevron {
+  margin-top: -40px;
+}
+
+.glyphicon-chevron-left:before {
+  margin-left: -135px;
+}
+
+.glyphicon-chevron-right:before {
+  margin-left: 15px;
+}
+
