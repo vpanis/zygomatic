@@ -1,3 +1,20 @@
+/* Pour ne montrer que la pile1 au début */
+.pile2 {
+  display: none;
+}
+
+.message2 {
+  display: none;
+}
+
+.message1 {
+  margin-left: 5px;
+}
+
+.message2 {
+  margin-left: 5px;
+}
+
 /* Main class */
 .navbar-wagon {
   border-bottom: 1px solid $light-grey;
