@@ -14,6 +14,6 @@
   // Reset the form
   $('#new_review').html("<%= j render 'skits/review_form', skit: @skit, review: Review.new %>");
   setTimeout(function() {
-    $(window).scrollTo("#reviews");
+    $(window).scrollTo("#on_top_reviews", 600);
   }, 500);
 <% end %>
