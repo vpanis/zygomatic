@@ -135,6 +135,7 @@
   color: #666666;
   border: none;
   border-bottom: 1px solid $light-grey;
+  border-left: 1px solid $brand-yellow;
   padding: 0 10px;
   outline: none;
   position: relative;
@@ -209,6 +210,9 @@
   a{
     color: $dark-grey;
   }
+  li {
+    padding-top: 10px;
+  }
 }
 
 .drop-right {
@@ -216,6 +220,7 @@
     list-style: none;
     color: $dark-grey;
     font-size: 16px;
+    padding-top: 10px;
     a{
       color: $dark-grey;
     }
@@ -287,13 +292,24 @@
   margin-top: -4px;
   border-color: $brand-yellow;
   border-top: 4px solid $brand-yellow;
+  min-width: 200%;
+  padding-bottom: 10px;
+
   li {
     margin-left: 14px;
+    padding-top: 10px;
   }
   a{
     color: $dark-grey;
   }
 }
+
+#navbar-wagon-menu-parcourir {
+  .caret {
+    margin-left: 65px;
+  }
+}
+
 
 #parcourir {
   margin-top: -4px;
