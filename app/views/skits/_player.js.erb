@@ -85,24 +85,19 @@
   function onLargePlayerStateChange(event) {
     switch (event.data) {
       case YT.PlayerState.ENDED:
-        console.log('large-player ENDED');
         miniaturePlayer.stopVideo();
         break;
       case YT.PlayerState.PLAYING:
         var largePlayerCurrentTime = largePlayer.getCurrentTime();
         miniaturePlayer.seekTo(largePlayerCurrentTime, true);
-        console.log('large-player PLAYING');
         miniaturePlayer.playVideo();
         break;
       case YT.PlayerState.PAUSED:
-        console.log('large-player PAUSED');
         miniaturePlayer.pauseVideo();
         break;
       case YT.PlayerState.BUFFERING:
-        console.log('large-player BUFFERING');
         break;
       case YT.PlayerState.CUED:
-        console.log('large-player CUED');
         break;
     }
   }
@@ -110,24 +105,19 @@
   function onMiniaturePlayerStateChange(event) {
     switch (event.data) {
       case YT.PlayerState.ENDED:
-        console.log('miniature-player ENDED');
         largePlayer.stopVideo();
         break;
       case YT.PlayerState.PLAYING:
-        console.log('miniature-player PLAYING');
         largePlayer.playVideo();
         break;
       case YT.PlayerState.PAUSED:
-        console.log('miniature-player PAUSED');
         largePlayer.pauseVideo();
         var miniaturePlayerCurrentTime = miniaturePlayer.getCurrentTime();
         largePlayer.seekTo(miniaturePlayerCurrentTime, true);
         break;
       case YT.PlayerState.BUFFERING:
-        console.log('miniature-player BUFFERING');
         break;
       case YT.PlayerState.CUED:
-        console.log('miniature-player CUED');
         break;
     }
 
@@ -146,13 +136,11 @@
         miniature_player_visible = true;
         $('#miniature-player').fadeIn();
         $('#minipanel').fadeIn();
-        console.log('you have below the bottom of large player');
       }
       if ((y_scroll_pos < scroll_pos_test) && miniature_player_visible && in_scroll_mode) {
         miniature_player_visible = false;
         $('#miniature-player').fadeOut();
         $('#minipanel').fadeOut();
-        console.log('you have above the bottom of large player');
       }
     });
   }
