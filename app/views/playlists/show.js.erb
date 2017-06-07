@@ -1,9 +1,15 @@
 // in playlist mode remove scroll effect
 var in_scroll_mode = false;
 
-// hide the quizz and the playing skit
+// hide the quizz and the playing skit and the navbar dropdown
+$('#zyzygodropdown').slideUp();
 $('#playing-skit').hide();
 $('#quizz').hide();
+
+//make the MyZygos clickable
+$('#navbar-wagon-menu-playlist').click(function(){
+  $('#zyzygodropdown').slideDown();
+});
 
 // remove the search
 $('#search-in-skit-show').hide();
