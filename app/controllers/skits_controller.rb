@@ -1,5 +1,5 @@
 class SkitsController < ApplicationController
-  before_action :set_skit, only: [:show]
+  before_action :set_skit, only: [:show, :nextskits]
 
   def index
     if params[:search]
@@ -46,6 +46,14 @@ class SkitsController < ApplicationController
     return ratings.inject{ |sum, rate| sum + rate }.to_f / ratings.length
   end
 
+  def nextskits
+    @next_skits = find_next_skits(6)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js  # <-- will render `app/views/skits/nextskits.js.erb`
+    end
+  end
+
   private
 
   def set_skit
@@ -62,7 +70,7 @@ class SkitsController < ApplicationController
     if current_user && (current_playlist = current_user.current_playlist)
       all_skits_from_current_playlist = current_playlist.playlist_skits.to_a.sort_by {|playlist_skits| playlist_skits.skit_position}.map {|playlist_skits| playlist_skits.skit}
       if index_skit = all_skits_from_current_playlist.index(@skit)
-        next_skits = all_skits_from_current_playlist.rotate(index_skit+1)[0..(nb_of_skits-1)]
+        next_skits = all_skits_from_current_playlist.rotate(index_skit+1)
       end
     end
 

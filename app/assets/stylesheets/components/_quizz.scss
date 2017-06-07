@@ -12,7 +12,7 @@
   border-radius: 4px;
     &:hover {
       .launchquizz {
-      opacity: 1.1;
+      opacity: 1.2;
       text-decoration: none;
       transform: scale(1.1);
       cursor: pointer;
@@ -73,6 +73,16 @@
   margin-top: 30px;
 }
 
+.quizz-badge-popup {
+  margin-top: 30px;
+  background-color: none;
+  position: absolute;
+  padding: 40px;
+  top: 7%;
+  left: 20%;
+  z-index: 2;
+  display: none;
+}
 
 .quizz-results {
   position: absolute;
