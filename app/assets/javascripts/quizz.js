@@ -13,6 +13,14 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
+      $("#last-answer").click(function(){
+      $(".quizz-badge-popup").fadeIn(500);
+      $(".quizz-badge-popup").delay(3000).fadeOut(500);
+   });
+  });
+
+
+$(document).ready(function(){
   $(".update_pill").click(function(){
         $(".pile1").hide();
         $(".pile2").show();
@@ -26,7 +34,7 @@ $(document).ready(function(){
       });
 });
 
-$(document).ready(function(){ 
+$(document).ready(function(){
   $(".bad-answer").click(function(){
         $(this).parents(".quizzbox:first").effect("shake");
 				e.stopPropagation();
