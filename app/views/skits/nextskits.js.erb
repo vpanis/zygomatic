@@ -1,1 +1,23 @@
-alert('ca marche');
+// remove any elements from the next skits carousel
+$('.carousel-inner').empty();
+
+
+// create html elements for each skits
+var nextSkits = []
+
+<% @next_skits.each_with_index do |skit, i| %>
+  nextSkits[parseInt(<%= i %>)] = '<div class="col-xs-4"><%= link_to skit_path(skit) do %><div class="row__inner"><div class="tile"><div class="tile__media"><%= cl_image_tag skit.picture.path, height: 140, width: 250, crop: :scale, class: "title__img" %></div><div class="tile__details"><div class="tile__title"><h6><%= skit.name %></h6></div><div class="tile__artist"><h5><%= skit.comedian.name %> ~ <span style="font-size: 14px;"><em><%= skit.duration %></em></span></h5></div></div></div></div><% end %></div>';
+<% end %>
+
+<% nb_of_skits = @next_skits.size %>
+<% @next_skits.each_with_index do |skit, i| %>
+  var nextThreeSkits = nextSkits[parseInt(<%= i % nb_of_skits %>)] + nextSkits[parseInt(<%= (i + 1) % nb_of_skits %>)] + nextSkits[parseInt(<%= (i + 2) % nb_of_skits %>)]
+  // first 3 items are active
+  <% if i.zero? %>
+    $('.carousel-inner').append($('<div class="item active">' + nextThreeSkits + '</div>'));
+
+  // all other are inactive
+  <% else %>
+    $('.carousel-inner').append($('<div class="item">' + nextThreeSkits + '</div>'));
+  <% end %>
+<% end %>
