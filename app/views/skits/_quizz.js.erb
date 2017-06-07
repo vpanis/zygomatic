@@ -1,0 +1,49 @@
+$(document).ready(function(){
+	// go to next card when correct answer clicked
+  $(".next-card").click(function(){
+  	var current_quizz = $(this).parents(".quizzbox:first");
+  	var next_quizz = $(current_quizz).next(".quizzbox");
+      if (next_quizz.length > 0) {
+      	// $(current_quizz).addClass('bravo');
+        $(current_quizz).hide(500);
+        $(next_quizz).show(500);
+      }
+    });
+
+  // shaky effect when wrong answer chosen
+  $(".bad-answer").click(function(){
+    $(this).parents(".quizzbox:first").effect("shake");
+		e.stopPropagation();
+   });
+
+  // update zigometer when final right answer chosen
+  $("#final-question").click(function(){
+    $('#zigometre').empty();
+    console.log('final answer replied');
+    var updatedZigometer = '<%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %><h4><span>100</span> zigos ! Tu es un roi de l\'humour !</h4>'
+    console.log(updatedZigometer);
+    $('#zigometre').append($(updatedZigometer));
+
+    var newScore = JSON.stringify({
+    	"user" : {
+			  "fun_level": "100"
+	    	}
+		  }
+		);
+    $.ajax({
+      type: "PATCH",
+      url: "<%= user_url(current_user) %>",
+      contentType: 'application/json',
+      data: newScore,
+      success: function(data) {
+        console.log('success - fun level updated');
+      },
+      error: function(jqXHR) {
+        console.error(jqXHR.responseText);
+      }
+    });
+   });
+});
+
+
+

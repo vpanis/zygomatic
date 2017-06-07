@@ -238,7 +238,6 @@
   flex-wrap: wrap;
   border-radius: 4px;
   padding: 5px;
-  background-color: #F3F3F3;
   img {
   width: 100px;
   margin-left: 5px;
@@ -247,6 +246,12 @@
     color: $dark-grey;
     margin: 0px;
     padding-left: 20px;
+  }
+
+  span {
+    color: $dark-grey;
+    font-weight: bolder;
+    font-size: 30px;
   }
 }
 
@@ -296,6 +301,8 @@
   a{
     color: $dark-grey;
   }
+
+
 }
 
 #parcourir {
