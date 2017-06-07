@@ -40,7 +40,6 @@
           var playlistId = $('.playlist-info').attr('id');
           var playlistName = $('.playlist-info').text();
 
-          console.log("<%= root_url %>");
           <!-- send ajax request to playlist#update -->
           var updatedPlaylist = JSON.stringify({
             'skit_ids': arrayOfSkitIds
@@ -52,9 +51,30 @@
             contentType: 'application/json',
             data: updatedPlaylist,
             success: function(data) {
-              console.log("Successfully updated playlist" + playlistName);
+              console.log("Successfully updated playlist '" + playlistName + "'");
+
+              $.ajax({
+                type: "GET",
+                url: "<%= nextskits_path(@skit) %>",
+                dataType: 'script',
+                success: function(data) {
+                  console.log('success');
+                },
+                error: function(jqXHR) {
+                  console.log('error');
+                  console.error(jqXHR.responseText);
+                }
+              });
             }
           });
+
+          <!-- update next skits carousel -->
+          <!-- 1. empty carousel -->
+          <!-- $('.carousel-inner').empty(); -->
+
+          <!-- 2. ajax request -->
+
+
         }
       });
       $( "#sortable" ).disableSelection();

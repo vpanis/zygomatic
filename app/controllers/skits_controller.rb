@@ -1,5 +1,5 @@
 class SkitsController < ApplicationController
-  before_action :set_skit, only: [:show]
+  before_action :set_skit, only: [:show, :nextskits]
 
   def index
     if params[:search]
@@ -44,6 +44,14 @@ class SkitsController < ApplicationController
       ratings << review.rating
     end
     return ratings.inject{ |sum, rate| sum + rate }.to_f / ratings.length
+  end
+
+  def nextskits
+    @next_skits = find_next_skits(6)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js  # <-- will render `app/views/skits/nextskits.js.erb`
+    end
   end
 
   private
