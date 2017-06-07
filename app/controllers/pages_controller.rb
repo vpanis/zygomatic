@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @recommended_skits = find_recommended_skits(6)
+    @last_skits = Skit.last(6)
   end
 
   private

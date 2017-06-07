@@ -30,7 +30,7 @@
     <div class="col-md-12">
       <div class="carousel slide multi-item-carousel" id="theCarousel2">
         <div class="carousel-inner">
-          <% Skit.all.each_with_index do |skit, i| %>
+          <% @last_skits.each_with_index do |skit, i| %>
             <div class="item <%= i.zero? ? 'active' : '' %>">
               <div class="col-xs-4"><%= render 'pages/shared/card', skit: skit %></div>
             </div>

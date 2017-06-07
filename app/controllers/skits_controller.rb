@@ -34,7 +34,7 @@ class SkitsController < ApplicationController
     @playlist_skit = PlaylistSkit.new
     @skit_rating_average = rating_average(@skit)
     if current_user
-    @right_playlists = filtering_playlists(current_user.playlists)
+      @right_playlists = filtering_playlists(current_user.playlists)
     end
   end
 

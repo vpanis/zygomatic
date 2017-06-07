@@ -14,7 +14,7 @@
             <span>Parcourir</span>
             <span class="caret"></span>
         <% end %>
-        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+        <ul class="dropdown-menu-left navbar-wagon-dropdown-menu dropdown-menu" id="parcourir">
           <div class="container">
             <div class="row">
               <div class="drop">
@@ -55,7 +55,7 @@
             <span>Mes Zygos</span>
             <span class="caret" style="margin-left: 73px"></span>
         <% end %>
-        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu" id="zyzygodropdown">
           <% current_user.playlists.each do |playlist| %>
             <li>
               <% if current_page?(root_path) || current_page?(skits_path) %>
