@@ -20,11 +20,11 @@
 	  height: 250px;
 		}
 	}
-	.card-top:hover {
-		img {
-			// transform: scale(1.2);
-		}
-	}
+	// .card-top:hover {
+	// 	img {
+	// 		// transform: scale(1.2);
+	// 	}
+	// }
 
 	.card-middle {
 		border-radius: 4px;
@@ -56,8 +56,8 @@
 			padding-right: 5px;
 			height: 135px;
 			align-items: center;
+			justify-content: center;
 			h3 {
-				justify-content: center;
 				font-size: 25px;
 				color: white;
 			}
