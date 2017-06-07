@@ -15,7 +15,7 @@
               </a>
             </div>
             <div class="card-comedian-avatar">
-              <%= cl_image_tag skit.comedian.picture.path, class: 'card-avatar' %>
+              <%= cl_image_tag skit.comedian.picture.path, :crop=>"scale", class: 'card-avatar' %>
             </div>
 
             <div class="card-ranking">

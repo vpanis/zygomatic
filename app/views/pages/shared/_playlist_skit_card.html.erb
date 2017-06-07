@@ -13,7 +13,7 @@
   </div>
 
   <div class="playlist-skit-card-comedian-avatar">
-    <%= cl_image_tag skit.comedian.picture.path, class: 'playlist-skit-card-avatar' %>
+    <%= cl_image_tag skit.comedian.picture.path, :width=>300, :crop=>"scale", class: 'playlist-skit-card-avatar' %>
     <%= link_to '', '#', class: 'playlist-skit-card-comedian-avatar-link' %>
   </div>
 </div>
