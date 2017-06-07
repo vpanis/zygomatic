@@ -28,9 +28,28 @@ $('.playlist-info').text("<%= @playlist.name %>");
   $('#sortable').append(current_playlist_skit);
 <% else %>
   <% @playlist_skits.each do |skit| %>
-    var current_playlist_skit = $("<li id='<%= skit.id %>' class='ui-state-default'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
+    var current_playlist_skit = $("<li id='<%= skit.id %>' class='ui-state-default ui-sortable-handle' style='list-style-type: none'><%= j render 'pages/shared/playlist_skit_card', skit: skit %></li>");
     $('#sortable').append(current_playlist_skit);
   <% end %>
 <% end %>
+
+var navbar_height = 70;
+var two_li_top_position = $("#sortable li:nth-child(2)").offset().top;
+var two_li_height = $("#sortable li:nth-child(2)").offset().top;
+var two_li_offset_height = 70;
+
+$(window).scroll(function() {
+  // $("#pub").prepend( "<div class='padded'></div>" );
+  var y_scroll_position = window.pageYOffset;
+  var scroll_position_test = - navbar_height + two_li_top_position + two_li_height - two_li_offset_height;
+  if (y_scroll_position > scroll_position_test) {
+    $("#sortable li:nth-child(5)").after("<li id='pub'><div class=row><div class='col-xs-12'><div class='playlist-skit-card-container'><div class='playlist-skit-card-box'><div id='closing_cross'><i class='fa fa-times-circle' aria-hidden='true'></i></div><div class='playlist-skit-card-data'></div></div><div class='playlist-skit-card-comedian-avatar'><img src='https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/1692/s200/le-wagon-logo.png' alt='Le Wagon' class= 'playlist-skit-card-avatar'></div></div></div></div></li>");
+    $("#pub").hide().slideDown(750);
+    $("#closing_cross").click(function(){
+      $("#pub").fadeOut(750);
+    });
+    $(window).off("scroll");
+  };
+});
 
 
