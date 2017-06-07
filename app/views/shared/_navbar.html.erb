@@ -74,10 +74,13 @@
   <!-- zigomètre -->
   <% if user_signed_in? %>
     <div id="zigometre">
-      <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155333/zygometre_zqjbqt.png", class: "pile1" %>
-      <%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png", class: "pile2" %>
-      <h4 class="message1"><span style="color: #FFCD38;">75</span> zigos ce mois-ci !</h4>
-      <h4 class="message2"><span style="color: #FFCD38;">100</span> zigos ! Tu es un roi de l'humour !</h4>
+      <% if current_user.fun_level == '100' %>
+        <%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %>
+        <h4><span>100</span> zigos ! Tu es un roi de l'humour !</h4>
+      <% else %>
+        <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155333/zygometre_zqjbqt.png" %>
+        <h4><span>75</span> zigos ce mois-ci !</h4>
+      <% end %>
     </div>
   <% end %>
 
