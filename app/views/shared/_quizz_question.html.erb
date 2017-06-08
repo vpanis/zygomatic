@@ -114,4 +114,10 @@
   </div>
 </div>
 
+<!-- script pour quizz -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    <%= render 'quizz.js' %>
+  <% end %>
+<% end %>
 
