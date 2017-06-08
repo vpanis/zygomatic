@@ -5,12 +5,12 @@ $(document).ready(function(){
   	var next_quizz = $(current_quizz).next(".quizzbox");
       if (next_quizz.length > 0) {
         $(current_quizz).hide(500);
-        $(next_quizz).show(500);
+        $(next_quizz).fadeIn(500);
       }
     });
 
   // shaky effect when wrong answer chosen
-  $(".bad-answer").click(function(){
+  $(".bad-answer").click(function(e){
     $(this).parents(".quizzbox:first").effect("shake");
 		e.stopPropagation();
    });
@@ -22,8 +22,8 @@ $(document).ready(function(){
     var updatedZigometer = '<%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %><h4><span>100</span> zigos ! Tu es un roi de l\'humour !</h4>'
     console.log(updatedZigometer);
     $('#zigometre').append($(updatedZigometer));
-    $(".quizz-badge-popup").fadeIn(500);
-    $(".quizz-badge-popup").delay(3000).fadeOut(500);
+    $("#quizz-badge-popup").fadeIn(500);
+    $("#quizz-badge-popup").delay(3000).fadeOut(500);
 
     var newScore = JSON.stringify({
       "user" : {
