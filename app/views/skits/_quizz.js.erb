@@ -4,7 +4,7 @@ $(document).ready(function(){
   	var current_quizz = $(this).parents(".quizzbox:first");
   	var next_quizz = $(current_quizz).next(".quizzbox");
       if (next_quizz.length > 0) {
-        $(current_quizz).hide(500);
+        $(current_quizz).hide();
         $(next_quizz).fadeIn(500);
       }
     });
@@ -17,13 +17,8 @@ $(document).ready(function(){
 
   // update zigometer when final right answer chosen
   $("#final-question").click(function(){
-    $('#zigometre').empty();
-    console.log('final answer replied');
-    var updatedZigometer = '<%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %><h4><span>100</span> zigos ! Tu es un roi de l\'humour !</h4>'
-    console.log(updatedZigometer);
-    $('#zigometre').append($(updatedZigometer));
-    $("#quizz-badge-popup").fadeIn(500);
-    $("#quizz-badge-popup").delay(3000).fadeOut(500);
+
+    // on click update DB with AJAX request
 
     var newScore = JSON.stringify({
       "user" : {
@@ -31,6 +26,7 @@ $(document).ready(function(){
         }
       }
     );
+
     $.ajax({
       type: "PATCH",
       url: "<%= user_url(current_user) %>",
@@ -38,6 +34,13 @@ $(document).ready(function(){
       data: newScore,
       success: function(data) {
         console.log('success - fun level updated');
+
+        // if AJAX request has worked, change zigometer
+        $('#zigometre').empty();
+        var updatedZigometer = '<%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %><h4><span>100</span> zigos ! Tu es un roi de l\'humour !</h4>'
+        $('#zigometre').append($(updatedZigometer));
+        $("#quizz-badge-popup").fadeIn(1000);
+        $("#quizz-badge-popup").delay(3000).fadeOut(500);
       },
       error: function(jqXHR) {
         console.error(jqXHR.responseText);
