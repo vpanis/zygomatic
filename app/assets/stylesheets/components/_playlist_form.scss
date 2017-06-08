@@ -12,6 +12,8 @@
   padding: 20px;
   opacity: 0.5;
   border-radius: 5px;
+  margin-bottom: 23px;
+  margin-top: 5px;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -28,4 +30,8 @@
 
 #playlist_fa {
   color: $dark-grey;
+}
+
+.modal-footer {
+  margin-top: -30px;
 }

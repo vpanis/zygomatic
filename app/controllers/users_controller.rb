@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def set_user
   	User.find(params[:id])
   end
-
+  
   def user_params
   	params.require(:user).permit(:fun_level)
   end
 end
+
+
