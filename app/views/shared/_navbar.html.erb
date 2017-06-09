@@ -52,8 +52,8 @@
       <div class="dropdown">
         <div class="navbar-wagon-item">
           <%= link_to "#", class: "navbar-wagon-link dropdown-toggle", id: "navbar-wagon-menu-playlist", "data-toggle" => "dropdown" do %>
-            <span>Mes Zygos</span>
-            <span class="caret" style="margin-left: 73px"></span>
+            <span>Mes playlists</span>
+            <span class="caret"></span>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu" id="zyzygodropdown">
           <% current_user.playlists.each do |playlist| %>
@@ -69,20 +69,21 @@
         </div>
       </div>
     <% end %>
+    <!-- zigomètre -->
+    <% if user_signed_in? %>
+      <div id="zigometre">
+        <% if current_user.fun_level == '100' %>
+          <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1497001207/Zygome%CC%80tre_full_m5lgsb.png" %>
+          <h4><span>100</span> zygos ! Tu es un roi de l'humour !</h4>
+        <% else %>
+          <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1497001207/Zygome%CC%80tre_75_fiotht.png" %>
+          <h3>75</h3>
+          <h4>zygos ce mois-ci !</h4>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
-  <!-- zigomètre -->
-  <% if user_signed_in? %>
-    <div id="zigometre">
-      <% if current_user.fun_level == '100' %>
-        <%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %>
-        <h4><span>100</span> zigos ! Tu es un roi de l'humour !</h4>
-      <% else %>
-        <%= image_tag "http://res.cloudinary.com/pywagon/image/upload/v1496155333/zygometre_zqjbqt.png" %>
-        <h4><span>75</span> zigos ce mois-ci !</h4>
-      <% end %>
-    </div>
-  <% end %>
 
   <!-- Search form -->
   <% if current_page?(root_path) || current_page?(skits_path) %>
