@@ -74,13 +74,12 @@
 }
 
 #quizz-badge-popup {
-  margin-top: 30px;
   background-color: none;
   position: absolute;
   padding: 40px;
-  top: 7%;
-  left: 20%;
-  z-index: 2;
+  top: -3%;
+  left: 3%;
+  z-index: 10;
   display: none;
 }
 
