@@ -82,7 +82,7 @@
         <div class="answer bad-answer text-center">
           <h3> Artimuses !</h3>
         </div>
-        
+
         <div id="final-question" class="answer next-card update_pill update_score text-center">
           <h3> Arquemuses !</h3>
         </div>
@@ -156,7 +156,7 @@
                 console.log('success - fun level updated');
                 // if AJAX request has worked, change zigometer
                 $('#zigometre').empty();
-                var updatedZigometer = '<%= image_tag "http://res.cloudinary.com/dz1hdbg1q/image/upload/v1496829806/pilefull.png" %><h4><span>100</span> zigos ! Tu es un roi de l\'humour !</h4>'
+                var updatedZigometer = '<%= image_tag 'http://res.cloudinary.com/pywagon/image/upload/v1497003062/Zygometre_full_skspci.png' %><h3>100</h3><h4>zygos !</h4>';
                 $('#zigometre').append($(updatedZigometer));
                 $("#quizz-badge-popup").fadeIn(1000);
                 $("#quizz-badge-popup").delay(3000).fadeOut(500);
@@ -166,7 +166,7 @@
               }
             });
           });
-        // } 
+        // }
       });
 
     <% end %>
@@ -202,7 +202,7 @@
               }
             );
           });
-        // } 
+        // }
       });
     <% end %>
   <% end %>
